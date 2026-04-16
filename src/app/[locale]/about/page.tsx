@@ -79,10 +79,6 @@ export default function AboutPage() {
               className="font-heading font-bold uppercase tracking-[1px] leading-[1.1] mb-5"
               style={{ fontSize: "28px" }}
             >
-              Молдова →
-              <br />
-              Москва →
-              <br />
               <span className="text-gold">Москва</span>
             </h3>
             <p className="text-muted leading-[1.8] mb-4">
