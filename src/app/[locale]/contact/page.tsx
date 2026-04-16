@@ -1,7 +1,5 @@
 import { Metadata } from "next";
 import { AnimatedSection } from "@/components/AnimatedSection";
-import { SectionHeading } from "@/components/SectionHeading";
-import { Button } from "@/components/Button";
 
 export const metadata: Metadata = {
   title: "Связаться с Вадимом Радуканом",
@@ -11,8 +9,7 @@ export const metadata: Metadata = {
 };
 
 const tasks = [
-  "Разработка сайта или приложения",
-  "Telegram-бот",
+  "Разработка под ключ",
   "Демо Raducan Hookah",
   "Демо Raducan Capital",
   "Партнёрство",
@@ -22,84 +19,83 @@ export default function ContactPage() {
   return (
     <>
       {/* Hero */}
-      <AnimatedSection className="mx-auto max-w-4xl px-6 pt-24 pb-12 text-center">
-        <h1 className="font-heading text-4xl font-bold md:text-5xl">
-          Обсудим задачу
-        </h1>
-        <p className="mt-4 text-lg text-muted">
-          Напишите в Telegram — отвечаю в течение нескольких часов. Или оставьте
-          заявку.
-        </p>
-      </AnimatedSection>
-
-      {/* Contacts */}
-      <AnimatedSection className="mx-auto max-w-4xl px-6 py-12">
-        <div className="grid grid-cols-1 gap-6 sm:grid-cols-2">
-          <a
-            href="https://t.me/MyPROf_IT"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="group border border-gold-border bg-surface p-8 transition-shadow hover:shadow-[0_0_30px_rgba(212,175,55,0.15)]"
-          >
-            <div className="text-2xl mb-3">💬</div>
-            <h3 className="font-heading text-lg font-semibold">Telegram</h3>
-            <p className="mt-1 text-gold group-hover:text-text transition-colors">
-              @MyPROf_IT
-            </p>
-            <p className="mt-2 text-sm text-muted">Основной канал связи</p>
-          </a>
-          <a
-            href="mailto:vadim@radukan.ru"
-            className="group border border-gold-border bg-surface p-8 transition-shadow hover:shadow-[0_0_30px_rgba(212,175,55,0.15)]"
-          >
-            <div className="text-2xl mb-3">📧</div>
-            <h3 className="font-heading text-lg font-semibold">Email</h3>
-            <p className="mt-1 text-gold group-hover:text-text transition-colors">
-              vadim@radukan.ru
-            </p>
-            <p className="mt-2 text-sm text-muted">Для документов и деталей</p>
-          </a>
-        </div>
-      </AnimatedSection>
-
-      {/* For which task */}
-      <AnimatedSection className="mx-auto max-w-4xl px-6 py-12">
-        <SectionHeading title="Для какой задачи?" />
-        <div className="flex flex-wrap gap-3">
-          {tasks.map((task) => (
-            <span
-              key={task}
-              className="border border-gold-border bg-gold-dim px-5 py-3 text-sm text-gold"
-            >
-              {task}
-            </span>
-          ))}
-        </div>
-      </AnimatedSection>
-
-      {/* Contact form */}
-      <AnimatedSection className="mx-auto max-w-4xl px-6 py-12 pb-24">
-        <SectionHeading title="Оставить заявку" />
-        <form className="space-y-6">
-          <div className="grid grid-cols-1 gap-6 sm:grid-cols-2">
-            <input
-              type="text"
-              placeholder="Ваше имя"
-              className="w-full border border-gold-border bg-surface px-4 py-3 text-text placeholder:text-muted focus:border-gold focus:outline-none"
-            />
-            <input
-              type="email"
-              placeholder="Email"
-              className="w-full border border-gold-border bg-surface px-4 py-3 text-text placeholder:text-muted focus:border-gold focus:outline-none"
-            />
+      <section className="px-[60px] pt-[140px] pb-[80px] relative overflow-hidden max-md:px-5 max-md:pt-[120px] max-md:pb-[60px]">
+        <div className="absolute -top-[100px] -right-[100px] w-[500px] h-[500px] bg-[radial-gradient(circle,rgba(212,175,55,0.05)_0%,transparent_70%)]" />
+        <div className="max-w-[700px]">
+          <div className="flex items-center gap-[10px] text-[11px] tracking-[3px] uppercase text-gold mb-5">
+            <span className="w-5 h-px bg-gold" />
+            Raducan · Контакт
           </div>
-          <textarea
-            rows={5}
-            placeholder="Опишите вашу задачу..."
-            className="w-full border border-gold-border bg-surface px-4 py-3 text-text placeholder:text-muted focus:border-gold focus:outline-none resize-none"
-          />
-          <Button>Отправить</Button>
-        </form>
+          <h1
+            className="font-heading font-[900] uppercase leading-[1.0] tracking-[-0.5px] mb-5"
+            style={{ fontSize: "clamp(36px, 5vw, 64px)" }}
+          >
+            Обсудим
+            <br />
+            <span className="text-gold">задачу</span>
+          </h1>
+          <p className="text-muted text-[17px] leading-[1.7] max-w-[500px]">
+            Напишите в Telegram — отвечаю быстро. Или заполните форму.
+          </p>
+        </div>
+      </section>
+
+      {/* Content */}
+      <AnimatedSection className="px-[60px] pb-[100px] max-md:px-5 max-md:pb-[60px]">
+        <div className="grid grid-cols-2 gap-[60px] max-w-[900px] max-md:grid-cols-1 max-md:gap-10">
+          {/* Contact methods */}
+          <div>
+            <div className="section-label mb-8">Способы связи</div>
+            <div className="flex flex-col gap-4">
+              <a
+                href="https://t.me/MyPROf_IT"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center gap-5 p-6 bg-surface border border-gold-border no-underline text-inherit transition-all duration-300 hover:-translate-y-0.5"
+              >
+                <span className="font-heading font-[900] text-[20px] text-gold">
+                  T
+                </span>
+                <div>
+                  <div className="text-[11px] tracking-[1.5px] uppercase text-muted mb-1">
+                    Telegram
+                  </div>
+                  <div className="font-medium">@MyPROf_IT</div>
+                </div>
+              </a>
+              <a
+                href="mailto:vadim@radukan.ru"
+                className="flex items-center gap-5 p-6 bg-surface border border-gold-border-06 no-underline text-inherit transition-all duration-300 hover:border-gold-border"
+              >
+                <span className="font-heading font-[900] text-[20px] text-gold">
+                  @
+                </span>
+                <div>
+                  <div className="text-[11px] tracking-[1.5px] uppercase text-muted mb-1">
+                    Email
+                  </div>
+                  <div className="font-medium">vadim@radukan.ru</div>
+                </div>
+              </a>
+            </div>
+          </div>
+
+          {/* Tasks */}
+          <div>
+            <div className="section-label mb-8">Для какой задачи?</div>
+            <div className="flex flex-col gap-2">
+              {tasks.map((task) => (
+                <div
+                  key={task}
+                  className="flex justify-between items-center p-4 border border-gold-border-06 text-[13px] cursor-pointer transition-all duration-300 hover:border-gold-border hover:text-gold"
+                >
+                  <span>{task}</span>
+                  <span className="text-gold">→</span>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
       </AnimatedSection>
     </>
   );

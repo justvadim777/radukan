@@ -1,18 +1,20 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { ReactNode } from "react";
+import { CSSProperties, ReactNode } from "react";
 
 interface AnimatedSectionProps {
   children: ReactNode;
   className?: string;
   delay?: number;
+  style?: CSSProperties;
 }
 
 export function AnimatedSection({
   children,
   className = "",
   delay = 0,
+  style,
 }: AnimatedSectionProps) {
   return (
     <motion.section
@@ -21,6 +23,7 @@ export function AnimatedSection({
       viewport={{ once: true, amount: 0.1 }}
       transition={{ duration: 0.6, delay, ease: "easeOut" }}
       className={className}
+      style={style}
     >
       {children}
     </motion.section>

@@ -1,48 +1,90 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Button } from "@/components/Button";
+import { Link } from "@/i18n/navigation";
 
 export function HeroSection() {
   return (
-    <section className="relative flex min-h-[85vh] items-center justify-center overflow-hidden px-6">
+    <section className="relative min-h-screen flex items-center px-[60px] pt-[120px] pb-[80px] overflow-hidden max-md:px-5 max-md:pt-[100px] max-md:pb-[60px]">
       {/* Background glow */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] rounded-full bg-gold/5 blur-[120px]" />
+      <div className="absolute -top-[200px] -right-[200px] w-[600px] h-[600px] bg-[radial-gradient(circle,rgba(212,175,55,0.06)_0%,transparent_70%)] pointer-events-none" />
 
-      <div className="relative mx-auto max-w-4xl text-center">
-        <motion.h1
-          initial={{ opacity: 0, y: 20 }}
+      {/* Bottom line */}
+      <div className="absolute bottom-0 left-0 right-0 h-px bg-[linear-gradient(90deg,transparent,rgba(212,175,55,0.25),transparent)]" />
+
+      <div className="max-w-[720px]">
+        {/* Tag */}
+        <motion.div
+          initial={{ opacity: 0, y: 24 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
-          className="font-heading text-4xl font-bold leading-tight md:text-6xl lg:text-7xl"
+          transition={{ duration: 0.8, delay: 0.2 }}
+          className="flex items-center gap-2 text-[12px] tracking-[2px] uppercase text-gold mb-8"
         >
-          Строю системы{" "}
-          <span className="text-gold">для бизнеса</span>
+          <span className="w-6 h-px bg-gold" />
+          Вадим Радукан — Разработчик
+        </motion.div>
+
+        {/* Title */}
+        <motion.h1
+          initial={{ opacity: 0, y: 24 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.9, delay: 0.4 }}
+          className="font-heading font-[900] uppercase leading-[1.0] tracking-[-1px] mb-7"
+          style={{ fontSize: "clamp(48px, 7vw, 88px)" }}
+        >
+          Строю <span className="text-gold">системы</span>
+          <br />
+          для бизнеса
         </motion.h1>
 
+        {/* Subtitle */}
         <motion.p
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: 24 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.2 }}
-          className="mx-auto mt-6 max-w-2xl text-lg text-muted md:text-xl"
+          transition={{ duration: 0.9, delay: 0.6 }}
+          className="text-[17px] text-muted leading-[1.7] max-w-[520px] mb-12"
         >
-          Вадим Радукан — разработчик и предприниматель. Создаю продукты для
-          HoReCa, инвестиций и автоматизации. От идеи до рабочего продукта за
-          2–4 недели.
+          Создаю продукты для HoReCa, инвестиций и автоматизации. От идеи до
+          рабочего продукта — за 2–4 недели.
         </motion.p>
 
+        {/* CTAs */}
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: 24 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.4 }}
-          className="mt-10 flex flex-col items-center gap-4 sm:flex-row sm:justify-center"
+          transition={{ duration: 0.9, delay: 0.8 }}
+          className="flex gap-4 max-md:flex-col"
         >
-          <Button href="/projects">Мои проекты</Button>
-          <Button href="/contact" variant="secondary">
+          <Link
+            href="/projects"
+            className="relative overflow-hidden bg-gold text-bg px-8 py-[14px] font-heading font-bold text-[13px] tracking-[2px] uppercase no-underline inline-block transition-all duration-300 hover:shadow-[0_0_30px_rgba(212,175,55,0.4)]"
+          >
+            Мои проекты
+          </Link>
+          <Link
+            href="/contact"
+            className="border border-gold-border text-text px-8 py-[14px] font-heading font-semibold text-[13px] tracking-[2px] uppercase no-underline inline-block transition-all duration-300 hover:border-gold hover:text-gold"
+          >
             Обсудить задачу
-          </Button>
+          </Link>
         </motion.div>
       </div>
+
+      {/* Scroll indicator */}
+      <motion.div
+        initial={{ opacity: 0, y: 24 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 1, delay: 1.2 }}
+        className="absolute bottom-10 left-[60px] flex items-center gap-3 text-[11px] tracking-[2px] uppercase text-muted max-md:hidden"
+      >
+        <div className="w-10 h-px bg-gold-border relative overflow-hidden">
+          <div
+            className="absolute inset-0 bg-gold"
+            style={{ animation: "scrollLine 2s 1.5s ease-in-out infinite" }}
+          />
+        </div>
+        Scroll
+      </motion.div>
     </section>
   );
 }

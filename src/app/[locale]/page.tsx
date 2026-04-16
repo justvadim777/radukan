@@ -8,7 +8,9 @@ export default function Home() {
     <>
       <HeroSection />
       <ProductsSection />
+      <div className="divider" />
       <ApproachSection />
+      <div className="divider" />
       <BlogPreviewSection />
     </>
   );
