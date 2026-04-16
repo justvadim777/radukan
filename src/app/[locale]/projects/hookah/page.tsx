@@ -67,91 +67,15 @@ const featuresEn = [
   { title: "Telegram", text: "Reservation notifications, reports, and management right in the messenger." },
 ];
 
-const plansRu = [
-  {
-    name: "Старт",
-    price: "Free",
-    period: "навсегда",
-    features: ["До 100 гостей", "Бронирование", "Базовая аналитика", "1 пользователь"],
-    cta: "Начать",
-    featured: false,
-  },
-  {
-    name: "Базовый",
-    price: "299",
-    currency: "₽",
-    period: "в месяц",
-    features: ["До 500 гостей", "Программа лояльности", "Учёт склада", "3 пользователя"],
-    cta: "Выбрать",
-    featured: false,
-  },
-  {
-    name: "Профи",
-    price: "599",
-    currency: "₽",
-    period: "в месяц",
-    features: ["Без ограничений", "Telegram-уведомления", "Полная аналитика", "10 пользователей"],
-    cta: "Попробовать",
-    featured: true,
-  },
-  {
-    name: "Сеть",
-    price: "999",
-    currency: "₽",
-    period: "в месяц",
-    features: ["Несколько заведений", "API интеграции", "Приоритетная поддержка", "Безлимит"],
-    cta: "Связаться",
-    featured: false,
-  },
-];
-
-const plansEn = [
-  {
-    name: "Starter",
-    price: "Free",
-    period: "forever",
-    features: ["Up to 100 guests", "Reservations", "Basic analytics", "1 user"],
-    cta: "Get started",
-    featured: false,
-  },
-  {
-    name: "Basic",
-    price: "299",
-    currency: "₽",
-    period: "per month",
-    features: ["Up to 500 guests", "Loyalty program", "Inventory tracking", "3 users"],
-    cta: "Choose",
-    featured: false,
-  },
-  {
-    name: "Pro",
-    price: "599",
-    currency: "₽",
-    period: "per month",
-    features: ["Unlimited", "Telegram notifications", "Full analytics", "10 users"],
-    cta: "Try it",
-    featured: true,
-  },
-  {
-    name: "Network",
-    price: "999",
-    currency: "₽",
-    period: "per month",
-    features: ["Multiple venues", "API integrations", "Priority support", "Unlimited"],
-    cta: "Contact",
-    featured: false,
-  },
-];
-
 const contentRu = {
   heroSubtitle: "Облачная система управления кальянной. Учёт гостей, бронирования, программа лояльности и аналитика в одном месте.",
   featuresLabel: "Возможности",
   featuresHeadingLine1: "Всё что нужно",
   featuresAccent: "кальянной",
   featuresHeadingSuffix: "",
-  pricingLabel: "Тарифы",
-  pricingHeading: "Выберите план",
-  popular: "Популярный",
+  ctaTitle: "Узнать стоимость",
+  ctaSubtitle: "Свяжитесь с нами для обсуждения условий и подбора оптимального решения.",
+  ctaButton: "Связаться",
 };
 
 const contentEn = {
@@ -160,15 +84,14 @@ const contentEn = {
   featuresHeadingLine1: "Everything a",
   featuresAccent: "hookah lounge",
   featuresHeadingSuffix: " needs",
-  pricingLabel: "Pricing",
-  pricingHeading: "Choose a plan",
-  popular: "Popular",
+  ctaTitle: "Get pricing",
+  ctaSubtitle: "Contact us to discuss terms and find the optimal solution.",
+  ctaButton: "Contact",
 };
 
 export default async function HookahPage() {
   const locale = await getLocale();
   const features = locale === "ru" ? featuresRu : featuresEn;
-  const plans = locale === "ru" ? plansRu : plansEn;
   const c = locale === "ru" ? contentRu : contentEn;
 
   return (
@@ -226,73 +149,32 @@ export default async function HookahPage() {
         </div>
       </AnimatedSection>
 
-      <div className="divider" />
-
-      {/* Pricing */}
-      <AnimatedSection className="px-[60px] py-[80px] max-md:px-5 max-md:py-[60px]">
-        <div className="section-label">{c.pricingLabel}</div>
-        <h3
+      {/* CTA */}
+      <AnimatedSection className="px-[60px] py-[100px] text-center max-md:px-5 max-md:py-[60px]">
+        <h2
           className="font-heading font-bold uppercase tracking-[1px]"
           style={{ fontSize: "clamp(24px, 3vw, 36px)" }}
         >
-          {c.pricingHeading}
-        </h3>
-        <div className="grid grid-cols-4 gap-[2px] mt-12 max-md:grid-cols-1">
-          {plans.map((plan, i) => (
-            <div
-              key={i}
-              className={`relative bg-surface p-[36px_28px] border transition-all duration-300 hover:border-gold-border hover:-translate-y-1 ${
-                plan.featured
-                  ? "bg-surface2 border-gold-border"
-                  : "border-gold-border-06"
-              }`}
-            >
-              {plan.featured && (
-                <div className="absolute -top-px right-5 bg-gold text-bg text-[10px] font-bold tracking-[1.5px] uppercase px-2.5 py-1">
-                  {c.popular}
-                </div>
-              )}
-              <div className="text-[11px] tracking-[2px] uppercase text-muted mb-4">
-                {plan.name}
-              </div>
-              <div className="font-heading font-[900] text-[40px] text-text leading-none mb-1">
-                {plan.price}
-                {plan.currency && (
-                  <span className="text-[18px] text-gold font-semibold">
-                    {plan.currency}
-                  </span>
-                )}
-              </div>
-              <div className="text-[12px] text-muted mb-7">{plan.period}</div>
-              <ul className="list-none mb-8">
-                {plan.features.map((f, j) => (
-                  <li
-                    key={j}
-                    className="flex items-center gap-2 text-[13px] text-muted py-[7px]"
-                    style={{ borderBottom: "1px solid rgba(255,255,255,0.04)" }}
-                  >
-                    <span className="text-gold text-[10px]">✓</span>
-                    {f}
-                  </li>
-                ))}
-              </ul>
-              {plan.featured ? (
-                <Link
-                  href="/contact"
-                  className="block text-center bg-gold text-bg px-5 py-3 font-heading font-bold text-[11px] tracking-[2px] uppercase no-underline transition-all duration-300 hover:shadow-[0_0_30px_rgba(212,175,55,0.4)]"
-                >
-                  {plan.cta}
-                </Link>
-              ) : (
-                <Link
-                  href="/contact"
-                  className="block text-center border border-gold-border text-text px-5 py-3 font-heading font-semibold text-[11px] tracking-[2px] uppercase no-underline transition-all duration-300 hover:border-gold hover:text-gold"
-                >
-                  {plan.cta}
-                </Link>
-              )}
-            </div>
-          ))}
+          {c.ctaTitle}
+        </h2>
+        <p className="mt-4 text-muted text-[17px] max-w-[500px] mx-auto">
+          {c.ctaSubtitle}
+        </p>
+        <div className="mt-8 flex justify-center gap-4 max-md:flex-col max-md:items-center">
+          <Link
+            href="/contact"
+            className="bg-gold text-bg px-8 py-[14px] font-heading font-bold text-[13px] tracking-[2px] uppercase no-underline transition-all duration-300 hover:shadow-[0_0_30px_rgba(212,175,55,0.4)]"
+          >
+            {c.ctaButton}
+          </Link>
+          <a
+            href="https://t.me/MyPROf_IT"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="border border-gold-border text-text px-8 py-[14px] font-heading font-semibold text-[13px] tracking-[2px] uppercase no-underline transition-all duration-300 hover:border-gold hover:text-gold"
+          >
+            Telegram
+          </a>
         </div>
       </AnimatedSection>
     </>

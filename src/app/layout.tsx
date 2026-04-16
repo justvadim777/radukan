@@ -37,6 +37,21 @@ export const metadata: Metadata = {
   },
 };
 
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@type": "Person",
+  name: "Вадим Радукан",
+  alternateName: "Vadim Radukan",
+  url: "https://raducan.pro",
+  jobTitle: "Разработчик и предприниматель",
+  email: "vadim@radukan.ru",
+  sameAs: [
+    "https://t.me/MyPROf_IT",
+    "https://github.com/justvadim777",
+  ],
+  knowsAbout: ["Next.js", "React", "TypeScript", "FastAPI", "Docker", "PostgreSQL"],
+};
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -44,6 +59,12 @@ export default function RootLayout({
 }>) {
   return (
     <html className={`${outfit.variable} ${inter.variable}`} suppressHydrationWarning>
+      <head>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        />
+      </head>
       <body className="min-h-screen flex flex-col antialiased">
         {children}
       </body>

@@ -150,7 +150,7 @@ export default async function BlogPage() {
         {posts.map((post) => (
           <Card
             key={post.slug}
-            href={`/blog/${post.slug}`}
+            href="/blog"
             tag={post.tag}
             title={post.title}
             description={post.description}

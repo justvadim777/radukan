@@ -12,57 +12,17 @@ export const metadata: Metadata = {
 };
 
 const servicesRu = [
-  {
-    icon: "🌐",
-    title: "Сайт / Лендинг",
-    price: "от 80 000 ₽",
-    text: "Презентационный сайт, лендинг, корпоративный портал. Быстро, красиво, с SEO.",
-  },
-  {
-    icon: "🤖",
-    title: "Telegram-бот",
-    price: "от 50 000 ₽",
-    text: "Автоматизация заказов, поддержки, уведомлений. Интеграция с CRM и базами данных.",
-  },
-  {
-    icon: "🚀",
-    title: "SaaS MVP",
-    price: "от 150 000 ₽",
-    text: "Полноценный веб-продукт с авторизацией, базой данных и платёжной системой.",
-  },
-  {
-    icon: "⚙️",
-    title: "Автоматизация",
-    price: "от 60 000 ₽",
-    text: "Бизнес-процессы, отчёты, интеграции между сервисами.",
-  },
+  { icon: "🌐", title: "Сайт / Лендинг", text: "Презентационный сайт, лендинг, корпоративный портал. Быстро, красиво, с SEO." },
+  { icon: "🤖", title: "Telegram-бот", text: "Автоматизация заказов, поддержки, уведомлений. Интеграция с CRM и базами данных." },
+  { icon: "🚀", title: "SaaS MVP", text: "Полноценный веб-продукт с авторизацией, базой данных и платёжной системой." },
+  { icon: "⚙️", title: "Автоматизация", text: "Бизнес-процессы, отчёты, интеграции между сервисами." },
 ];
 
 const servicesEn = [
-  {
-    icon: "🌐",
-    title: "Website / Landing",
-    price: "from 80,000 ₽",
-    text: "Presentation website, landing page, corporate portal. Fast, beautiful, SEO-ready.",
-  },
-  {
-    icon: "🤖",
-    title: "Telegram bot",
-    price: "from 50,000 ₽",
-    text: "Order, support, and notification automation. CRM and database integration.",
-  },
-  {
-    icon: "🚀",
-    title: "SaaS MVP",
-    price: "from 150,000 ₽",
-    text: "Full-featured web product with auth, database, and payment system.",
-  },
-  {
-    icon: "⚙️",
-    title: "Automation",
-    price: "from 60,000 ₽",
-    text: "Business processes, reports, integrations between services.",
-  },
+  { icon: "🌐", title: "Website / Landing", text: "Presentation website, landing page, corporate portal. Fast, beautiful, SEO-ready." },
+  { icon: "🤖", title: "Telegram bot", text: "Order, support, and notification automation. CRM and database integration." },
+  { icon: "🚀", title: "SaaS MVP", text: "Full-featured web product with auth, database, and payment system." },
+  { icon: "⚙️", title: "Automation", text: "Business processes, reports, integrations between services." },
 ];
 
 const processRu = [
@@ -163,12 +123,7 @@ export default async function TechPage() {
               key={i}
               className="border border-gold-border bg-surface p-6 transition-shadow hover:shadow-[0_0_30px_rgba(212,175,55,0.15)]"
             >
-              <div className="flex items-start justify-between">
-                <div className="text-3xl">{s.icon}</div>
-                <span className="font-heading text-lg font-bold text-gold">
-                  {s.price}
-                </span>
-              </div>
+              <div className="text-3xl">{s.icon}</div>
               <h3 className="mt-4 font-heading text-lg font-semibold">
                 {s.title}
               </h3>

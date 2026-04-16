@@ -1,7 +1,6 @@
 import { Metadata } from "next";
 import { AnimatedSection } from "@/components/AnimatedSection";
-import { SectionHeading } from "@/components/SectionHeading";
-import { Button } from "@/components/Button";
+import { Link } from "@/i18n/navigation";
 import { getLocale } from "next-intl/server";
 
 export const metadata: Metadata = {
@@ -12,260 +11,114 @@ export const metadata: Metadata = {
 };
 
 const featuresRu = [
-  {
-    icon: "📊",
-    title: "Мультипортфельный дашборд",
-    text: "Одновременное отслеживание нескольких портфелей у разных брокеров.",
-  },
-  {
-    icon: "💹",
-    title: "Акции + облигации + крипто",
-    text: "Все активы в единой таблице. Сравнение доходности и диверсификации.",
-  },
-  {
-    icon: "📜",
-    title: "История транзакций",
-    text: "Полный журнал покупок, продаж и дивидендов с фильтрацией.",
-  },
-  {
-    icon: "🎯",
-    title: "Целевой трекер",
-    text: "Поставьте финансовую цель и отслеживайте прогресс каждый день.",
-  },
-  {
-    icon: "📈",
-    title: "Аналитика",
-    text: "Графики доходности, структура портфеля, сравнение с индексом.",
-  },
+  { icon: "📊", title: "Мультипортфельный дашборд", text: "Одновременное отслеживание нескольких портфелей у разных брокеров." },
+  { icon: "💹", title: "Акции + облигации + крипто", text: "Все активы в единой таблице. Сравнение доходности и диверсификации." },
+  { icon: "📜", title: "История транзакций", text: "Полный журнал покупок, продаж и дивидендов с фильтрацией." },
+  { icon: "🎯", title: "Целевой трекер", text: "Поставьте финансовую цель и отслеживайте прогресс каждый день." },
+  { icon: "📈", title: "Аналитика", text: "Графики доходности, структура портфеля, сравнение с индексом." },
 ];
 
 const featuresEn = [
-  {
-    icon: "📊",
-    title: "Multi-portfolio dashboard",
-    text: "Simultaneously track multiple portfolios across different brokers.",
-  },
-  {
-    icon: "💹",
-    title: "Stocks + bonds + crypto",
-    text: "All assets in one table. Compare returns and diversification.",
-  },
-  {
-    icon: "📜",
-    title: "Transaction history",
-    text: "Complete log of purchases, sales, and dividends with filtering.",
-  },
-  {
-    icon: "🎯",
-    title: "Goal tracker",
-    text: "Set a financial goal and track progress every day.",
-  },
-  {
-    icon: "📈",
-    title: "Analytics",
-    text: "Return charts, portfolio structure, benchmark comparison.",
-  },
-];
-
-const plansRu = [
-  {
-    name: "Старт",
-    price: "Free",
-    period: "навсегда",
-    features: ["1 портфель", "Базовая аналитика", "История 30 дней"],
-    cta: "Начать бесплатно",
-    popular: false,
-  },
-  {
-    name: "Базовый",
-    price: "299 ₽",
-    period: "/мес",
-    features: ["3 портфеля", "Полная история", "Экспорт в CSV"],
-    cta: "Выбрать",
-    popular: false,
-  },
-  {
-    name: "Профи",
-    price: "599 ₽",
-    period: "/мес",
-    features: [
-      "10 портфелей",
-      "Целевой трекер",
-      "Продвинутая аналитика",
-      "API-доступ",
-    ],
-    cta: "Попробовать",
-    popular: true,
-  },
-  {
-    name: "Премиум",
-    price: "999 ₽",
-    period: "/мес",
-    features: [
-      "Безлимит портфелей",
-      "Все интеграции",
-      "Приоритетная поддержка",
-      "White-label",
-    ],
-    cta: "Связаться",
-    popular: false,
-  },
-];
-
-const plansEn = [
-  {
-    name: "Starter",
-    price: "Free",
-    period: "forever",
-    features: ["1 portfolio", "Basic analytics", "30-day history"],
-    cta: "Start free",
-    popular: false,
-  },
-  {
-    name: "Basic",
-    price: "299 ₽",
-    period: "/mo",
-    features: ["3 portfolios", "Full history", "CSV export"],
-    cta: "Choose",
-    popular: false,
-  },
-  {
-    name: "Pro",
-    price: "599 ₽",
-    period: "/mo",
-    features: [
-      "10 portfolios",
-      "Goal tracker",
-      "Advanced analytics",
-      "API access",
-    ],
-    cta: "Try it",
-    popular: true,
-  },
-  {
-    name: "Premium",
-    price: "999 ₽",
-    period: "/mo",
-    features: [
-      "Unlimited portfolios",
-      "All integrations",
-      "Priority support",
-      "White-label",
-    ],
-    cta: "Contact",
-    popular: false,
-  },
+  { icon: "📊", title: "Multi-portfolio dashboard", text: "Simultaneously track multiple portfolios across different brokers." },
+  { icon: "💹", title: "Stocks + bonds + crypto", text: "All assets in one table. Compare returns and diversification." },
+  { icon: "📜", title: "Transaction history", text: "Complete log of purchases, sales, and dividends with filtering." },
+  { icon: "🎯", title: "Goal tracker", text: "Set a financial goal and track progress every day." },
+  { icon: "📈", title: "Analytics", text: "Return charts, portfolio structure, benchmark comparison." },
 ];
 
 const contentRu = {
-  heroTag: "SaaS · Инвестиции",
-  heroTitle: "Весь ваш портфель в одном месте",
   heroSubtitle: "Тинькофф, БКС, Bybit — единый дашборд для акций, облигаций и криптовалюты.",
-  tryDemo: "Попробовать демо",
-  featuresHeading: "Функционал",
-  pricingHeading: "Тарифы",
-  popular: "Популярный",
+  featuresLabel: "Функционал",
+  ctaTitle: "Узнать стоимость",
+  ctaSubtitle: "Свяжитесь с нами для обсуждения условий и получения доступа.",
+  ctaButton: "Связаться",
 };
 
 const contentEn = {
-  heroTag: "SaaS · Investments",
-  heroTitle: "Your entire portfolio in one place",
   heroSubtitle: "Tinkoff, BCS, Bybit — a unified dashboard for stocks, bonds, and crypto.",
-  tryDemo: "Try demo",
-  featuresHeading: "Features",
-  pricingHeading: "Pricing",
-  popular: "Popular",
+  featuresLabel: "Features",
+  ctaTitle: "Get pricing",
+  ctaSubtitle: "Contact us to discuss terms and get access.",
+  ctaButton: "Contact",
 };
 
 export default async function CapitalPage() {
   const locale = await getLocale();
   const features = locale === "ru" ? featuresRu : featuresEn;
-  const plans = locale === "ru" ? plansRu : plansEn;
   const c = locale === "ru" ? contentRu : contentEn;
 
   return (
     <>
       {/* Hero */}
-      <AnimatedSection className="mx-auto max-w-4xl px-6 pt-24 pb-12 text-center">
-        <span className="mb-4 inline-block text-sm font-medium uppercase tracking-wider text-gold">
-          {c.heroTag}
-        </span>
-        <h1 className="font-heading text-4xl font-bold md:text-6xl">
-          {c.heroTitle}
-        </h1>
-        <p className="mt-4 max-w-2xl mx-auto text-lg text-muted">
-          {c.heroSubtitle}
-        </p>
-        <div className="mt-8">
-          <Button href="/contact">{c.tryDemo}</Button>
+      <section className="px-[60px] pt-[140px] pb-[80px] relative overflow-hidden max-md:px-5 max-md:pt-[120px] max-md:pb-[60px]">
+        <div className="absolute -top-[100px] -right-[100px] w-[500px] h-[500px] bg-[radial-gradient(circle,rgba(212,175,55,0.05)_0%,transparent_70%)]" />
+        <div className="max-w-[700px]">
+          <div className="flex items-center gap-[10px] text-[11px] tracking-[3px] uppercase text-gold mb-5">
+            <span className="w-5 h-px bg-gold" />
+            Raducan · SaaS
+          </div>
+          <h1
+            className="font-heading font-[900] uppercase leading-[1.0] tracking-[-0.5px] mb-5"
+            style={{ fontSize: "clamp(36px, 5vw, 64px)" }}
+          >
+            <span className="text-gold">Capital</span>
+            <br />
+            Dashboard
+          </h1>
+          <p className="text-muted text-[17px] leading-[1.7] max-w-[500px]">
+            {c.heroSubtitle}
+          </p>
         </div>
-      </AnimatedSection>
+      </section>
 
       {/* Features */}
-      <AnimatedSection className="mx-auto max-w-7xl px-6 py-24">
-        <SectionHeading title={c.featuresHeading} />
-        <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
+      <AnimatedSection
+        className="px-[60px] py-[80px] max-md:px-5 max-md:py-[60px]"
+        style={{ borderTop: "1px solid rgba(212,175,55,0.06)" }}
+      >
+        <div className="section-label">{c.featuresLabel}</div>
+        <div className="grid grid-cols-3 gap-[2px] mt-12 max-md:grid-cols-1">
           {features.map((f, i) => (
             <div
               key={i}
-              className="border border-gold-border bg-surface p-6 transition-shadow hover:shadow-[0_0_30px_rgba(212,175,55,0.15)]"
+              className="bg-surface p-[36px_28px] border border-gold-border-06 transition-all duration-300 hover:border-gold-border hover:bg-surface2"
             >
-              <div className="text-3xl mb-4">{f.icon}</div>
-              <h3 className="font-heading text-lg font-semibold">{f.title}</h3>
-              <p className="mt-2 text-sm text-muted leading-relaxed">
-                {f.text}
-              </p>
+              <div className="text-3xl mb-5">{f.icon}</div>
+              <div className="font-heading font-semibold text-[15px] uppercase tracking-[1px] mb-2.5">
+                {f.title}
+              </div>
+              <p className="text-muted text-[13px] leading-[1.7]">{f.text}</p>
             </div>
           ))}
         </div>
       </AnimatedSection>
 
-      {/* Pricing */}
-      <AnimatedSection className="mx-auto max-w-7xl px-6 py-24">
-        <SectionHeading title={c.pricingHeading} />
-        <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
-          {plans.map((plan, i) => (
-            <div
-              key={i}
-              className={`relative border bg-surface p-6 ${
-                plan.popular
-                  ? "border-gold shadow-[0_0_30px_rgba(212,175,55,0.2)]"
-                  : "border-gold-border"
-              }`}
-            >
-              {plan.popular && (
-                <span className="absolute -top-3 left-4 bg-gold px-3 py-1 text-xs font-bold text-bg">
-                  {c.popular}
-                </span>
-              )}
-              <h3 className="font-heading text-lg font-semibold">
-                {plan.name}
-              </h3>
-              <div className="mt-3">
-                <span className="font-heading text-3xl font-bold text-gold">
-                  {plan.price}
-                </span>
-                <span className="text-sm text-muted">{plan.period}</span>
-              </div>
-              <ul className="mt-6 space-y-3">
-                {plan.features.map((f, j) => (
-                  <li key={j} className="flex items-start gap-2 text-sm text-muted">
-                    <span className="text-gold mt-0.5">✓</span>
-                    {f}
-                  </li>
-                ))}
-              </ul>
-              <div className="mt-6">
-                <Button
-                  href="/contact"
-                  variant={plan.popular ? "primary" : "secondary"}
-                  className="w-full"
-                >
-                  {plan.cta}
-                </Button>
-              </div>
-            </div>
-          ))}
+      {/* CTA */}
+      <AnimatedSection className="px-[60px] py-[100px] text-center max-md:px-5 max-md:py-[60px]">
+        <h2
+          className="font-heading font-bold uppercase tracking-[1px]"
+          style={{ fontSize: "clamp(24px, 3vw, 36px)" }}
+        >
+          {c.ctaTitle}
+        </h2>
+        <p className="mt-4 text-muted text-[17px] max-w-[500px] mx-auto">
+          {c.ctaSubtitle}
+        </p>
+        <div className="mt-8 flex justify-center gap-4 max-md:flex-col max-md:items-center">
+          <Link
+            href="/contact"
+            className="bg-gold text-bg px-8 py-[14px] font-heading font-bold text-[13px] tracking-[2px] uppercase no-underline transition-all duration-300 hover:shadow-[0_0_30px_rgba(212,175,55,0.4)]"
+          >
+            {c.ctaButton}
+          </Link>
+          <a
+            href="https://t.me/MyPROf_IT"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="border border-gold-border text-text px-8 py-[14px] font-heading font-semibold text-[13px] tracking-[2px] uppercase no-underline transition-all duration-300 hover:border-gold hover:text-gold"
+          >
+            Telegram
+          </a>
         </div>
       </AnimatedSection>
     </>
