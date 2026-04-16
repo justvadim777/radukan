@@ -1,0 +1,49 @@
+{
+  "nav": {
+    "home": "Home",
+    "about": "About",
+    "projects": "Projects",
+    "blog": "Blog",
+    "tools": "Tools",
+    "contact": "Contact"
+  },
+  "hero": {
+    "title": "Building systems",
+    "titleAccent": "for business",
+    "subtitle": "Vadim Radukan — developer and entrepreneur. Creating products for HoReCa, investments, and business automation. From idea to working product in 2–4 weeks.",
+    "cta1": "My projects",
+    "cta2": "Discuss a task"
+  },
+  "products": {
+    "title": "Raducan Ecosystem",
+    "hookah": {
+      "tag": "CRM · HoReCa",
+      "title": "Raducan Hookah",
+      "description": "Cloud CRM for hookah lounges. Guest management, reservations, loyalty program, and analytics in one place.",
+      "cta": "Learn more"
+    },
+    "capital": {
+      "tag": "SaaS · Investments",
+      "title": "Raducan Capital",
+      "description": "Investment dashboard. Tinkoff, BCS, Bybit in a single portfolio with analytics and goal tracker.",
+      "cta": "Learn more"
+    },
+    "tech": {
+      "tag": "Development · Freelance",
+      "title": "Raducan Tech",
+      "description": "Websites, Telegram bots, SaaS products, and business process automation.",
+      "cta": "Discuss a task"
+    }
+  },
+  "approach": {
+    "title": "Building systems, not doing tasks",
+    "subtitle": "Helping small businesses operate like big systems. Result — not process."
+  },
+  "footer": {
+    "slogan": "Building systems for business",
+    "products": "Products",
+    "resources": "Resources",
+    "contacts": "Contacts",
+    "rights": "All rights reserved"
+  }
+}
