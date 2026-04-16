@@ -1,8 +1,9 @@
 "use client";
 
 import { AnimatedSection } from "@/components/AnimatedSection";
+import { useLocale } from "next-intl";
 
-const approaches = [
+const approachesRu = [
   {
     num: "01",
     title: "Быстрый старт",
@@ -25,6 +26,47 @@ const approaches = [
   },
 ];
 
+const approachesEn = [
+  {
+    num: "01",
+    title: "Quick start",
+    text: "From idea to working MVP in 2–4 weeks. No lengthy approvals or bureaucracy.",
+  },
+  {
+    num: "02",
+    title: "Working product",
+    text: "I deliver what actually works and makes money. Not pretty presentations.",
+  },
+  {
+    num: "03",
+    title: "Systematic approach",
+    text: "I look at the business as a whole. Building solutions that scale.",
+  },
+  {
+    num: "04",
+    title: "Direct communication",
+    text: "I work directly, no middlemen. Telegram, fast responses.",
+  },
+];
+
+const contentRu = {
+  sectionLabel: "Подход",
+  headingLine1: "Строю системы,",
+  headingLine2: "не ",
+  headingAccent: "выполняю",
+  headingLine3: "задачи",
+  subtitle: "Помогаю малому бизнесу работать как большая система. Результат — не процесс.",
+};
+
+const contentEn = {
+  sectionLabel: "Approach",
+  headingLine1: "Building systems,",
+  headingLine2: "not ",
+  headingAccent: "doing",
+  headingLine3: "tasks",
+  subtitle: "Helping small businesses operate like big systems. Result — not process.",
+};
+
 const stack = [
   "Next.js",
   "React",
@@ -37,6 +79,10 @@ const stack = [
 ];
 
 export function ApproachSection() {
+  const locale = useLocale();
+  const approaches = locale === "ru" ? approachesRu : approachesEn;
+  const c = locale === "ru" ? contentRu : contentEn;
+
   return (
     <AnimatedSection
       className="px-[60px] py-[100px] max-md:px-5 max-md:py-[60px]"
@@ -45,20 +91,19 @@ export function ApproachSection() {
       <div className="grid grid-cols-[1fr_1.6fr] gap-20 items-start max-md:grid-cols-1 max-md:gap-10">
         {/* Left */}
         <div>
-          <div className="section-label">Подход</div>
+          <div className="section-label">{c.sectionLabel}</div>
           <h2
             className="font-heading font-bold uppercase tracking-[1px] leading-[1.1] mb-6"
             style={{ fontSize: "clamp(28px, 3.5vw, 40px)" }}
           >
-            Строю системы,
+            {c.headingLine1}
             <br />
-            не <span className="text-gold">выполняю</span>
+            {c.headingLine2}<span className="text-gold">{c.headingAccent}</span>
             <br />
-            задачи
+            {c.headingLine3}
           </h2>
           <p className="text-muted leading-[1.8] mb-9">
-            Помогаю малому бизнесу работать как большая система. Результат — не
-            процесс.
+            {c.subtitle}
           </p>
 
           <div className="flex flex-wrap gap-2">

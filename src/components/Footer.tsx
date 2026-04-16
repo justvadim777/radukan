@@ -1,10 +1,11 @@
 "use client";
 
 import { Link } from "@/i18n/navigation";
-import { useTranslations } from "next-intl";
+import { useLocale, useTranslations } from "next-intl";
 
 export function Footer() {
   const t = useTranslations("footer");
+  const locale = useLocale();
 
   return (
     <footer
@@ -18,7 +19,10 @@ export function Footer() {
             RADUCAN
           </div>
           <p className="text-muted text-[13px] max-w-[240px] leading-[1.6]">
-            {t("slogan")}. Разработчик и предприниматель.
+            {t("slogan")}.{" "}
+            {locale === "ru"
+              ? "Разработчик и предприниматель."
+              : "Developer and entrepreneur."}
           </p>
         </div>
 
@@ -59,7 +63,7 @@ export function Footer() {
           {/* Pages */}
           <div>
             <h4 className="text-[11px] tracking-[2px] uppercase text-gold mb-5">
-              Страницы
+              {locale === "ru" ? "Страницы" : "Pages"}
             </h4>
             <ul className="list-none flex flex-col gap-2.5">
               <li>
@@ -67,7 +71,7 @@ export function Footer() {
                   href="/about"
                   className="text-muted no-underline text-[13px] transition-colors duration-300 hover:text-text"
                 >
-                  Обо мне
+                  {locale === "ru" ? "Обо мне" : "About"}
                 </Link>
               </li>
               <li>
@@ -75,7 +79,7 @@ export function Footer() {
                   href="/blog"
                   className="text-muted no-underline text-[13px] transition-colors duration-300 hover:text-text"
                 >
-                  Блог
+                  {locale === "ru" ? "Блог" : "Blog"}
                 </Link>
               </li>
               <li>
@@ -83,7 +87,7 @@ export function Footer() {
                   href="/tools"
                   className="text-muted no-underline text-[13px] transition-colors duration-300 hover:text-text"
                 >
-                  Инструменты
+                  {locale === "ru" ? "Инструменты" : "Tools"}
                 </Link>
               </li>
               <li>
@@ -91,7 +95,7 @@ export function Footer() {
                   href="/contact"
                   className="text-muted no-underline text-[13px] transition-colors duration-300 hover:text-text"
                 >
-                  Контакт
+                  {locale === "ru" ? "Контакт" : "Contact"}
                 </Link>
               </li>
             </ul>

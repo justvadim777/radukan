@@ -2,9 +2,96 @@
 
 import { useState } from "react";
 import { AnimatedSection } from "@/components/AnimatedSection";
-import { SectionHeading } from "@/components/SectionHeading";
+import { useLocale } from "next-intl";
 
-function ROICalculator() {
+const contentRu = {
+  heading: "Инструменты",
+  subtitle: "Бесплатные инструменты ��ля бизнеса и инвестиций.",
+  roi: {
+    title: "Калькулятор ROI кальянной",
+    description: "Рассчитайте возв��ат инвестиций вашего заведения.",
+    revenueLabel: "Выручка в месяц (₽)",
+    costsLabel: "Ра��ходы в ме��яц (₽)",
+    investmentLabel: "Первоначальные инвестиции (₽)",
+    profitLabel: "Прибыль:",
+    profitUnit: "₽/мес",
+    roiLabel: "ROI:",
+  },
+  dca: {
+    title: "Калькулятор DCA-инвестиций",
+    description: "Рассчитайте доход от регулярных инвестиций.",
+    monthlyLabel: "Сумма в месяц (₽)",
+    monthsLabel: "Срок (месяцев)",
+    rateLabel: "Ожидаемая доходность (%/год)",
+    investedLabel: "Вложено:",
+    totalLabel: "Итого:",
+    profitLabel: "Доход:",
+  },
+  crm: {
+    title: "Чек-лист выбора CRM",
+    description: "Отметьте функции, которые вам нужны.",
+    selectedLabel: "Выбрано:",
+    coverageMessage: "Raducan Hookah покрывает все выбранные функции!",
+    items: [
+      "Ведение базы клиентов",
+      "Сегментация аудитории",
+      "Программа лояльности",
+      "Онлайн-бронирование",
+      "Управление складом",
+      "Аналитика и отчёты",
+      "Мобильное приложение или Telegram-бот",
+      "Интеграция с кассой",
+      "Уведомления и рассылки",
+      "Экспорт данных",
+    ],
+  },
+};
+
+const contentEn = {
+  heading: "Tools",
+  subtitle: "Free tools for business and investments.",
+  roi: {
+    title: "Hookah lounge ROI calculator",
+    description: "Calculate the return on investment for your venue.",
+    revenueLabel: "Monthly revenue (₽)",
+    costsLabel: "Monthly costs (₽)",
+    investmentLabel: "Initial investment (₽)",
+    profitLabel: "Profit:",
+    profitUnit: "₽/mo",
+    roiLabel: "ROI:",
+  },
+  dca: {
+    title: "DCA investment calculator",
+    description: "Calculate returns from regular investments.",
+    monthlyLabel: "Monthly amount (₽)",
+    monthsLabel: "Period (months)",
+    rateLabel: "Expected return (%/year)",
+    investedLabel: "Invested:",
+    totalLabel: "Total:",
+    profitLabel: "Profit:",
+  },
+  crm: {
+    title: "CRM selection checklist",
+    description: "Check the features you need.",
+    selectedLabel: "Selected:",
+    coverageMessage: "Raducan Hookah covers all selected features!",
+    items: [
+      "Client database management",
+      "Audience segmentation",
+      "Loyalty program",
+      "Online reservations",
+      "Inventory management",
+      "Analytics and reports",
+      "Mobile app or Telegram bot",
+      "POS integration",
+      "Notifications and mailings",
+      "Data export",
+    ],
+  },
+};
+
+function ROICalculator({ t }: { t: typeof contentRu.roi }) {
+  const locale = useLocale();
   const [revenue, setRevenue] = useState(500000);
   const [costs, setCosts] = useState(350000);
   const [investment, setInvestment] = useState(100000);
@@ -14,15 +101,11 @@ function ROICalculator() {
 
   return (
     <div className="border border-gold-border bg-surface p-6">
-      <h3 className="font-heading text-lg font-semibold">
-        Калькулятор ROI кальянной
-      </h3>
-      <p className="mt-1 text-sm text-muted">
-        Рассчитайте возврат инвестиций вашего заведения.
-      </p>
+      <h3 className="font-heading text-lg font-semibold">{t.title}</h3>
+      <p className="mt-1 text-sm text-muted">{t.description}</p>
       <div className="mt-6 space-y-4">
         <div>
-          <label className="text-sm text-muted">Выручка в месяц (₽)</label>
+          <label className="text-sm text-muted">{t.revenueLabel}</label>
           <input
             type="number"
             value={revenue}
@@ -31,7 +114,7 @@ function ROICalculator() {
           />
         </div>
         <div>
-          <label className="text-sm text-muted">Расходы в месяц (₽)</label>
+          <label className="text-sm text-muted">{t.costsLabel}</label>
           <input
             type="number"
             value={costs}
@@ -40,9 +123,7 @@ function ROICalculator() {
           />
         </div>
         <div>
-          <label className="text-sm text-muted">
-            Первоначальные инвестиции (₽)
-          </label>
+          <label className="text-sm text-muted">{t.investmentLabel}</label>
           <input
             type="number"
             value={investment}
@@ -52,13 +133,13 @@ function ROICalculator() {
         </div>
         <div className="border-t border-gold-border pt-4">
           <p className="text-sm text-muted">
-            Прибыль:{" "}
+            {t.profitLabel}{" "}
             <span className="font-semibold text-text">
-              {profit.toLocaleString("ru-RU")} ₽/мес
+              {profit.toLocaleString(locale === "ru" ? "ru-RU" : "en-US")} {t.profitUnit}
             </span>
           </p>
           <p className="mt-1 text-sm text-muted">
-            ROI:{" "}
+            {t.roiLabel}{" "}
             <span className="font-heading text-2xl font-bold text-gold">
               {roi}%
             </span>
@@ -69,7 +150,8 @@ function ROICalculator() {
   );
 }
 
-function DCACalculator() {
+function DCACalculator({ t }: { t: typeof contentRu.dca }) {
+  const locale = useLocale();
   const [monthly, setMonthly] = useState(10000);
   const [months, setMonths] = useState(12);
   const [rate, setRate] = useState(10);
@@ -81,18 +163,15 @@ function DCACalculator() {
       ? monthly * ((Math.pow(1 + monthlyRate, months) - 1) / monthlyRate)
       : totalInvested;
   const profit = futureValue - totalInvested;
+  const loc = locale === "ru" ? "ru-RU" : "en-US";
 
   return (
     <div className="border border-gold-border bg-surface p-6">
-      <h3 className="font-heading text-lg font-semibold">
-        Калькулятор DCA-инвестиций
-      </h3>
-      <p className="mt-1 text-sm text-muted">
-        Рассчитайте доход от регулярных инвестиций.
-      </p>
+      <h3 className="font-heading text-lg font-semibold">{t.title}</h3>
+      <p className="mt-1 text-sm text-muted">{t.description}</p>
       <div className="mt-6 space-y-4">
         <div>
-          <label className="text-sm text-muted">Сумма в месяц (₽)</label>
+          <label className="text-sm text-muted">{t.monthlyLabel}</label>
           <input
             type="number"
             value={monthly}
@@ -101,7 +180,7 @@ function DCACalculator() {
           />
         </div>
         <div>
-          <label className="text-sm text-muted">Срок (месяцев)</label>
+          <label className="text-sm text-muted">{t.monthsLabel}</label>
           <input
             type="number"
             value={months}
@@ -110,7 +189,7 @@ function DCACalculator() {
           />
         </div>
         <div>
-          <label className="text-sm text-muted">Ожидаемая доходность (%/год)</label>
+          <label className="text-sm text-muted">{t.rateLabel}</label>
           <input
             type="number"
             value={rate}
@@ -120,21 +199,21 @@ function DCACalculator() {
         </div>
         <div className="border-t border-gold-border pt-4">
           <p className="text-sm text-muted">
-            Вложено:{" "}
+            {t.investedLabel}{" "}
             <span className="font-semibold text-text">
-              {totalInvested.toLocaleString("ru-RU")} ₽
+              {totalInvested.toLocaleString(loc)} ₽
             </span>
           </p>
           <p className="mt-1 text-sm text-muted">
-            Итого:{" "}
+            {t.totalLabel}{" "}
             <span className="font-semibold text-text">
-              {Math.round(futureValue).toLocaleString("ru-RU")} ₽
+              {Math.round(futureValue).toLocaleString(loc)} ₽
             </span>
           </p>
           <p className="mt-1 text-sm text-muted">
-            Доход:{" "}
+            {t.profitLabel}{" "}
             <span className="font-heading text-2xl font-bold text-gold">
-              +{Math.round(profit).toLocaleString("ru-RU")} ₽
+              +{Math.round(profit).toLocaleString(loc)} ₽
             </span>
           </p>
         </div>
@@ -143,22 +222,9 @@ function DCACalculator() {
   );
 }
 
-function CRMChecklist() {
-  const items = [
-    "Ведение базы клиентов",
-    "Сегментация аудитории",
-    "Программа лояльности",
-    "Онлайн-бронирование",
-    "Управление складом",
-    "Аналитика и отчёты",
-    "Мобильное приложение или Telegram-бот",
-    "Интеграция с кассой",
-    "Уведомления и рассылки",
-    "Экспорт данных",
-  ];
-
+function CRMChecklist({ t }: { t: typeof contentRu.crm }) {
   const [checked, setChecked] = useState<boolean[]>(
-    new Array(items.length).fill(false)
+    new Array(t.items.length).fill(false)
   );
 
   const toggle = (i: number) => {
@@ -171,14 +237,10 @@ function CRMChecklist() {
 
   return (
     <div className="border border-gold-border bg-surface p-6">
-      <h3 className="font-heading text-lg font-semibold">
-        Чек-лист выбора CRM
-      </h3>
-      <p className="mt-1 text-sm text-muted">
-        Отметьте функции, которые вам нужны.
-      </p>
+      <h3 className="font-heading text-lg font-semibold">{t.title}</h3>
+      <p className="mt-1 text-sm text-muted">{t.description}</p>
       <div className="mt-6 space-y-3">
-        {items.map((item, i) => (
+        {t.items.map((item, i) => (
           <label
             key={i}
             className="flex items-center gap-3 cursor-pointer text-sm text-muted hover:text-text transition-colors"
@@ -195,15 +257,13 @@ function CRMChecklist() {
       </div>
       <div className="mt-4 border-t border-gold-border pt-4">
         <p className="text-sm text-muted">
-          Выбрано:{" "}
+          {t.selectedLabel}{" "}
           <span className="font-heading text-lg font-bold text-gold">
-            {count}/{items.length}
+            {count}/{t.items.length}
           </span>
         </p>
         {count >= 5 && (
-          <p className="mt-2 text-sm text-gold">
-            Raducan Hookah покрывает все выбранные функции!
-          </p>
+          <p className="mt-2 text-sm text-gold">{t.coverageMessage}</p>
         )}
       </div>
     </div>
@@ -211,19 +271,20 @@ function CRMChecklist() {
 }
 
 export default function ToolsPage() {
+  const locale = useLocale();
+  const c = locale === "ru" ? contentRu : contentEn;
+
   return (
     <AnimatedSection className="mx-auto max-w-7xl px-6 py-24">
       <h1 className="font-heading text-4xl font-bold md:text-5xl">
-        Инструменты
+        {c.heading}
       </h1>
-      <p className="mt-4 text-lg text-muted">
-        Бесплатные инструменты для бизнеса и инвестиций.
-      </p>
+      <p className="mt-4 text-lg text-muted">{c.subtitle}</p>
 
       <div className="mt-12 grid grid-cols-1 gap-8 lg:grid-cols-2">
-        <ROICalculator />
-        <DCACalculator />
-        <CRMChecklist />
+        <ROICalculator t={c.roi} />
+        <DCACalculator t={c.dca} />
+        <CRMChecklist t={c.crm} />
       </div>
     </AnimatedSection>
   );

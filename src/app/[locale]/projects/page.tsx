@@ -1,6 +1,7 @@
 import { Metadata } from "next";
 import { AnimatedSection } from "@/components/AnimatedSection";
 import { Link } from "@/i18n/navigation";
+import { getLocale } from "next-intl/server";
 
 export const metadata: Metadata = {
   title: "Продукты Raducan — CRM, инвестиции, разработка",
@@ -9,7 +10,7 @@ export const metadata: Metadata = {
   alternates: { canonical: "https://raducan.pro/projects" },
 };
 
-const projects = [
+const projectsRu = [
   {
     href: "/projects/hookah" as const,
     tag: "CRM · HoReCa",
@@ -39,7 +40,55 @@ const projects = [
   },
 ];
 
-export default function ProjectsPage() {
+const projectsEn = [
+  {
+    href: "/projects/hookah" as const,
+    tag: "CRM · HoReCa",
+    name: "Hookah",
+    description:
+      "Cloud CRM for hookah lounge automation. Guests, reservations, loyalty, analytics. Test environment — Ostrov Lounge, Moscow.",
+    badges: ["Next.js", "PostgreSQL", "Docker"],
+    cta: "Learn more",
+  },
+  {
+    href: "/projects/capital" as const,
+    tag: "SaaS · Investments",
+    name: "Capital",
+    description:
+      "Multi-portfolio investment dashboard. Tinkoff + BCS + Bybit in one place. Analytics, goals, transaction history.",
+    badges: ["Next.js", "Recharts", "Prisma"],
+    cta: "Learn more",
+  },
+  {
+    href: "/projects/tech" as const,
+    tag: "Development · Freelance",
+    name: "Tech",
+    description:
+      "Website, Telegram bot, and SaaS product development. For small businesses. From 50k RUB.",
+    badges: ["React", "FastAPI", "Telegram"],
+    cta: "Discuss",
+  },
+];
+
+const contentRu = {
+  tagline: "Raducan · Продукты",
+  headingLine1: "Все",
+  headingAccent: "проекты",
+  subtitle: "Три продукта. Один бренд. HoReCa, инвестиции, разработка.",
+};
+
+const contentEn = {
+  tagline: "Raducan · Products",
+  headingLine1: "All",
+  headingAccent: "projects",
+  subtitle: "Three products. One brand. HoReCa, investments, development.",
+};
+
+export default async function ProjectsPage() {
+  const locale = await getLocale();
+  const projects = locale === "ru" ? projectsRu : projectsEn;
+  const c = locale === "ru" ? contentRu : contentEn;
+
   return (
     <>
       {/* Hero */}
@@ -48,18 +97,18 @@ export default function ProjectsPage() {
         <div className="max-w-[700px]">
           <div className="flex items-center gap-[10px] text-[11px] tracking-[3px] uppercase text-gold mb-5">
             <span className="w-5 h-px bg-gold" />
-            Raducan · Продукты
+            {c.tagline}
           </div>
           <h1
             className="font-heading font-[900] uppercase leading-[1.0] tracking-[-0.5px] mb-5"
             style={{ fontSize: "clamp(36px, 5vw, 64px)" }}
           >
-            Все
+            {c.headingLine1}
             <br />
-            <span className="text-gold">проекты</span>
+            <span className="text-gold">{c.headingAccent}</span>
           </h1>
           <p className="text-muted text-[17px] leading-[1.7] max-w-[500px]">
-            Три продукта. Один бренд. HoReCa, инвестиции, разработка.
+            {c.subtitle}
           </p>
         </div>
       </section>

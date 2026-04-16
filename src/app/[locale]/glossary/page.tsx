@@ -1,5 +1,6 @@
 import { Metadata } from "next";
 import { AnimatedSection } from "@/components/AnimatedSection";
+import { getLocale } from "next-intl/server";
 
 export const metadata: Metadata = {
   title: "Глоссарий: CRM, HoReCa, SaaS и другие термины",
@@ -8,7 +9,7 @@ export const metadata: Metadata = {
   alternates: { canonical: "https://raducan.pro/glossary" },
 };
 
-const terms = [
+const termsRu = [
   {
     term: "CRM",
     definition:
@@ -61,16 +62,83 @@ const terms = [
   },
 ];
 
-const alphabet = [...new Set(terms.map((t) => t.term[0]))].sort();
+const termsEn = [
+  {
+    term: "CRM",
+    definition:
+      "Customer Relationship Management — a system for managing customer relationships. Helps maintain a client database, track interactions, and automate sales.",
+  },
+  {
+    term: "DCA",
+    definition:
+      "Dollar Cost Averaging — a strategy of regularly investing a fixed amount regardless of the current asset price. Reduces the impact of volatility.",
+  },
+  {
+    term: "HoReCa",
+    definition:
+      "Hotel, Restaurant, Catering — a hospitality industry segment that includes hotels, restaurants, cafes, bars, and hookah lounges.",
+  },
+  {
+    term: "MVP",
+    definition:
+      "Minimum Viable Product — a product version with basic functionality for testing a hypothesis and gathering feedback.",
+  },
+  {
+    term: "ROI",
+    definition:
+      "Return on Investment — a ratio measuring the profitability of an investment. Shows how much profit each invested unit generates.",
+  },
+  {
+    term: "SaaS",
+    definition:
+      "Software as a Service — a subscription-based software distribution model. Users pay monthly for access to a cloud service.",
+  },
+  {
+    term: "API",
+    definition:
+      "Application Programming Interface — an interface for programs to interact with each other. Enables integration of different services.",
+  },
+  {
+    term: "SEO",
+    definition:
+      "Search Engine Optimization — optimizing a website for search engines. The goal is to get organic traffic from Google and other search engines.",
+  },
+  {
+    term: "SSG",
+    definition:
+      "Static Site Generation — generating HTML pages at build time. Fast loading and good SEO.",
+  },
+  {
+    term: "Portfolio",
+    definition:
+      "A collection of investment assets (stocks, bonds, cryptocurrency) grouped together for tracking and analysis.",
+  },
+];
 
-export default function GlossaryPage() {
+const contentRu = {
+  heading: "Глоссарий",
+  subtitle: "Термины из мира бизнеса, технологий и инвестиций.",
+};
+
+const contentEn = {
+  heading: "Glossary",
+  subtitle: "Terms from the world of business, technology, and investments.",
+};
+
+export default async function GlossaryPage() {
+  const locale = await getLocale();
+  const terms = locale === "ru" ? termsRu : termsEn;
+  const c = locale === "ru" ? contentRu : contentEn;
+
+  const alphabet = [...new Set(terms.map((t) => t.term[0]))].sort();
+
   return (
     <AnimatedSection className="mx-auto max-w-4xl px-6 py-24">
       <h1 className="font-heading text-4xl font-bold md:text-5xl">
-        Глоссарий
+        {c.heading}
       </h1>
       <p className="mt-4 text-lg text-muted">
-        Термины из мира бизнеса, технологий и инвестиций.
+        {c.subtitle}
       </p>
 
       {/* Alphabet nav */}

@@ -2,8 +2,9 @@
 
 import { Link } from "@/i18n/navigation";
 import { AnimatedSection } from "@/components/AnimatedSection";
+import { useLocale } from "next-intl";
 
-const posts = [
+const postsRu = [
   {
     href: "/blog" as const,
     cat: "HoReCa",
@@ -30,7 +31,50 @@ const posts = [
   },
 ];
 
+const postsEn = [
+  {
+    href: "/blog" as const,
+    cat: "HoReCa",
+    title: "How to choose a CRM for a hookah lounge in 2025",
+    date: "Apr 15, 2025",
+    time: "8 min",
+    label: "CRM",
+  },
+  {
+    href: "/blog" as const,
+    cat: "Investments",
+    title: "DCA strategy: how to invest without stress",
+    date: "Apr 8, 2025",
+    time: "6 min",
+    label: "DCA",
+  },
+  {
+    href: "/blog" as const,
+    cat: "Development",
+    title: "How to launch a SaaS product in 4 weeks",
+    date: "Apr 1, 2025",
+    time: "10 min",
+    label: "SaaS",
+  },
+];
+
+const contentRu = {
+  sectionLabel: "Блог",
+  heading: "Статьи",
+  allArticles: "Все статьи",
+};
+
+const contentEn = {
+  sectionLabel: "Blog",
+  heading: "Articles",
+  allArticles: "All articles",
+};
+
 export function BlogPreviewSection() {
+  const locale = useLocale();
+  const posts = locale === "ru" ? postsRu : postsEn;
+  const c = locale === "ru" ? contentRu : contentEn;
+
   return (
     <AnimatedSection
       className="px-[60px] py-[100px] max-md:px-5 max-md:py-[60px]"
@@ -39,19 +83,19 @@ export function BlogPreviewSection() {
       {/* Header */}
       <div className="flex items-end justify-between mb-12">
         <div>
-          <div className="section-label">Блог</div>
+          <div className="section-label">{c.sectionLabel}</div>
           <h2
             className="font-heading font-bold uppercase tracking-[1px]"
             style={{ fontSize: "clamp(28px, 4vw, 42px)" }}
           >
-            Статьи
+            {c.heading}
           </h2>
         </div>
         <Link
           href="/blog"
           className="border border-gold-border text-text px-5 py-[10px] font-heading font-semibold text-[11px] tracking-[2px] uppercase no-underline transition-all duration-300 hover:border-gold hover:text-gold max-md:hidden"
         >
-          Все статьи
+          {c.allArticles}
         </Link>
       </div>
 

@@ -1,6 +1,7 @@
 import { Metadata } from "next";
 import { AnimatedSection } from "@/components/AnimatedSection";
 import { Link } from "@/i18n/navigation";
+import { getLocale } from "next-intl/server";
 
 export const metadata: Metadata = {
   title: "О Вадиме Радукане — разработчик и предприниматель",
@@ -9,7 +10,7 @@ export const metadata: Metadata = {
   alternates: { canonical: "https://raducan.pro/about" },
 };
 
-const experience = [
+const experienceRu = [
   {
     num: "01",
     title: "Raducan",
@@ -32,6 +33,51 @@ const experience = [
   },
 ];
 
+const experienceEn = [
+  {
+    num: "01",
+    title: "Raducan",
+    text: "Founder of the IT product ecosystem: Hookah CRM, Capital, Tech. Developing and managing.",
+  },
+  {
+    num: "02",
+    title: "Ostrov Lounge",
+    text: "Manager of a hookah bar in Moscow. Operations, staff, finances.",
+  },
+  {
+    num: "03",
+    title: "RoboWeb (2022–2023)",
+    text: "Led the development team, managed Yandex Direct with a budget of 150k RUB/month.",
+  },
+  {
+    num: "04",
+    title: "Freelance",
+    text: "Websites, Telegram bots, SaaS products for small businesses via Profi.ru and referrals.",
+  },
+];
+
+const contentRu = {
+  tagline: "Raducan · Основатель",
+  firstName: "Вадим",
+  lastName: "Радукан",
+  subtitle: "Разработчик и предприниматель. Строю IT-продукты для малого бизнеса.",
+  sectionLabel: "История",
+  cityAccent: "Москва",
+  bio1: "Родился в Яловень, Молдова. Учился в РГАУ-МСХА в Москве. Карьера пошла в IT.",
+  bio2: "Сейчас — разработчик и управляющий Остров Lounge в Москве. Строю продукты для бизнеса.",
+};
+
+const contentEn = {
+  tagline: "Raducan · Founder",
+  firstName: "Vadim",
+  lastName: "Radukan",
+  subtitle: "Developer and entrepreneur. Building IT products for small businesses.",
+  sectionLabel: "Story",
+  cityAccent: "Moscow",
+  bio1: "Born in Ialoveni, Moldova. Studied at RGAU-MSHA in Moscow. Career moved into IT.",
+  bio2: "Currently a developer and manager of Ostrov Lounge in Moscow. Building products for business.",
+};
+
 const stack = [
   "Next.js",
   "React",
@@ -41,7 +87,11 @@ const stack = [
   "PostgreSQL",
 ];
 
-export default function AboutPage() {
+export default async function AboutPage() {
+  const locale = await getLocale();
+  const experience = locale === "ru" ? experienceRu : experienceEn;
+  const c = locale === "ru" ? contentRu : contentEn;
+
   return (
     <>
       {/* Hero */}
@@ -50,18 +100,18 @@ export default function AboutPage() {
         <div className="max-w-[700px]">
           <div className="flex items-center gap-[10px] text-[11px] tracking-[3px] uppercase text-gold mb-5">
             <span className="w-5 h-px bg-gold" />
-            Raducan · Основатель
+            {c.tagline}
           </div>
           <h1
             className="font-heading font-[900] uppercase leading-[1.0] tracking-[-0.5px] mb-5"
             style={{ fontSize: "clamp(36px, 5vw, 64px)" }}
           >
-            Вадим
+            {c.firstName}
             <br />
-            <span className="text-gold">Радукан</span>
+            <span className="text-gold">{c.lastName}</span>
           </h1>
           <p className="text-muted text-[17px] leading-[1.7] max-w-[500px]">
-            Разработчик и предприниматель. Строю IT-продукты для малого бизнеса.
+            {c.subtitle}
           </p>
         </div>
       </section>
@@ -74,20 +124,18 @@ export default function AboutPage() {
         <div className="grid grid-cols-[1fr_1.6fr] gap-20 items-start max-md:grid-cols-1 max-md:gap-10">
           {/* Left - Bio */}
           <div>
-            <div className="section-label">История</div>
+            <div className="section-label">{c.sectionLabel}</div>
             <h3
               className="font-heading font-bold uppercase tracking-[1px] leading-[1.1] mb-5"
               style={{ fontSize: "28px" }}
             >
-              <span className="text-gold">Москва</span>
+              <span className="text-gold">{c.cityAccent}</span>
             </h3>
             <p className="text-muted leading-[1.8] mb-4">
-              Родился в Яловень, Молдова. Учился в РГАУ-МСХА в Москве. Карьера
-              пошла в IT.
+              {c.bio1}
             </p>
             <p className="text-muted leading-[1.8] mb-8">
-              Сейчас — разработчик и управляющий Остров Lounge в Москве. Строю
-              продукты для бизнеса.
+              {c.bio2}
             </p>
 
             <div className="flex flex-wrap gap-2">

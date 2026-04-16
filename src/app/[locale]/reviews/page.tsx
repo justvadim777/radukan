@@ -2,12 +2,13 @@
 
 import { useState } from "react";
 import { AnimatedSection } from "@/components/AnimatedSection";
-import { SectionHeading } from "@/components/SectionHeading";
 import { motion } from "framer-motion";
+import { useLocale } from "next-intl";
 
-const categories = ["Все", "Фриланс", "Hookah", "Capital"];
+const categoriesRu = ["Все", "Фриланс", "Hookah", "Capital"];
+const categoriesEn = ["All", "Freelance", "Hookah", "Capital"];
 
-const reviews = [
+const reviewsRu = [
   {
     name: "Алексей К.",
     category: "Фриланс",
@@ -46,20 +47,75 @@ const reviews = [
   },
 ];
 
+const reviewsEn = [
+  {
+    name: "Alexey K.",
+    category: "Freelance",
+    text: "Vadim built a website in 10 days. Everything works, SEO is on point, traffic started within a month. Highly recommend.",
+    rating: 5,
+  },
+  {
+    name: "Marina S.",
+    category: "Hookah",
+    text: "Raducan Hookah CRM completely transformed how we manage our bar. Reservations, analytics — all in one place.",
+    rating: 5,
+  },
+  {
+    name: "Dmitry V.",
+    category: "Capital",
+    text: "Finally I can see all my portfolios in one place. Convenient dashboard, clear analytics.",
+    rating: 4,
+  },
+  {
+    name: "Elena R.",
+    category: "Freelance",
+    text: "I ordered a Telegram bot for order automation. Done quickly and with quality. The bot works flawlessly.",
+    rating: 5,
+  },
+  {
+    name: "Igor M.",
+    category: "Hookah",
+    text: "The loyalty program in the CRM works great. Guests started coming back more often.",
+    rating: 5,
+  },
+  {
+    name: "Anna L.",
+    category: "Freelance",
+    text: "Professional approach. Clear deadlines, transparent pricing. Will definitely come back.",
+    rating: 5,
+  },
+];
+
+const contentRu = {
+  heading: "Отзывы",
+  subtitle: "Что говорят клиенты о работе с Raducan.",
+};
+
+const contentEn = {
+  heading: "Reviews",
+  subtitle: "What clients say about working with Raducan.",
+};
+
 export default function ReviewsPage() {
-  const [filter, setFilter] = useState("Все");
+  const locale = useLocale();
+  const categories = locale === "ru" ? categoriesRu : categoriesEn;
+  const reviews = locale === "ru" ? reviewsRu : reviewsEn;
+  const c = locale === "ru" ? contentRu : contentEn;
+  const allLabel = locale === "ru" ? "Все" : "All";
+
+  const [filter, setFilter] = useState(allLabel);
 
   const filtered =
-    filter === "Все"
+    filter === allLabel
       ? reviews
       : reviews.filter((r) => r.category === filter);
 
   return (
     <>
       <AnimatedSection className="mx-auto max-w-7xl px-6 pt-24 pb-12">
-        <h1 className="font-heading text-4xl font-bold md:text-5xl">Отзывы</h1>
+        <h1 className="font-heading text-4xl font-bold md:text-5xl">{c.heading}</h1>
         <p className="mt-4 text-lg text-muted">
-          Что говорят клиенты о работе с Raducan.
+          {c.subtitle}
         </p>
       </AnimatedSection>
 

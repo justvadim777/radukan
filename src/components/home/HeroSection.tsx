@@ -2,8 +2,34 @@
 
 import { motion } from "framer-motion";
 import { Link } from "@/i18n/navigation";
+import { useLocale } from "next-intl";
+
+const contentRu = {
+  tag: "Вадим Радукан — Разработчик",
+  titleLine1: "Строю ",
+  titleAccent: "системы",
+  titleLine2: "для бизнеса",
+  subtitle:
+    "Создаю продукты для HoReCa, инвестиций и автоматизации. От идеи до рабочего продукта — за 2–4 недели.",
+  cta1: "Мои проекты",
+  cta2: "Обсудить задачу",
+};
+
+const contentEn = {
+  tag: "Vadim Radukan — Developer",
+  titleLine1: "Building ",
+  titleAccent: "systems",
+  titleLine2: "for business",
+  subtitle:
+    "Creating products for HoReCa, investments, and automation. From idea to working product in 2–4 weeks.",
+  cta1: "My projects",
+  cta2: "Discuss a task",
+};
 
 export function HeroSection() {
+  const locale = useLocale();
+  const c = locale === "ru" ? contentRu : contentEn;
+
   return (
     <section className="relative min-h-screen flex items-center px-[60px] pt-[120px] pb-[80px] overflow-hidden max-md:px-5 max-md:pt-[100px] max-md:pb-[60px]">
       {/* Background glow */}
@@ -21,7 +47,7 @@ export function HeroSection() {
           className="flex items-center gap-2 text-[12px] tracking-[2px] uppercase text-gold mb-8"
         >
           <span className="w-6 h-px bg-gold" />
-          Вадим Радукан — Разработчик
+          {c.tag}
         </motion.div>
 
         {/* Title */}
@@ -32,9 +58,9 @@ export function HeroSection() {
           className="font-heading font-[900] uppercase leading-[1.0] tracking-[-1px] mb-7"
           style={{ fontSize: "clamp(48px, 7vw, 88px)" }}
         >
-          Строю <span className="text-gold">системы</span>
+          {c.titleLine1}<span className="text-gold">{c.titleAccent}</span>
           <br />
-          для бизнеса
+          {c.titleLine2}
         </motion.h1>
 
         {/* Subtitle */}
@@ -44,8 +70,7 @@ export function HeroSection() {
           transition={{ duration: 0.9, delay: 0.6 }}
           className="text-[17px] text-muted leading-[1.7] max-w-[520px] mb-12"
         >
-          Создаю продукты для HoReCa, инвестиций и автоматизации. От идеи до
-          рабочего продукта — за 2–4 недели.
+          {c.subtitle}
         </motion.p>
 
         {/* CTAs */}
@@ -59,13 +84,13 @@ export function HeroSection() {
             href="/projects"
             className="relative overflow-hidden bg-gold text-bg px-8 py-[14px] font-heading font-bold text-[13px] tracking-[2px] uppercase no-underline inline-block transition-all duration-300 hover:shadow-[0_0_30px_rgba(212,175,55,0.4)]"
           >
-            Мои проекты
+            {c.cta1}
           </Link>
           <Link
             href="/contact"
             className="border border-gold-border text-text px-8 py-[14px] font-heading font-semibold text-[13px] tracking-[2px] uppercase no-underline inline-block transition-all duration-300 hover:border-gold hover:text-gold"
           >
-            Обсудить задачу
+            {c.cta2}
           </Link>
         </motion.div>
       </div>
