@@ -33,6 +33,10 @@ export const metadata: Metadata = {
   },
   alternates: {
     canonical: "https://raducan.pro",
+    languages: {
+      ru: "https://raducan.pro/ru",
+      en: "https://raducan.pro/en",
+    },
   },
   robots: {
     index: true,
