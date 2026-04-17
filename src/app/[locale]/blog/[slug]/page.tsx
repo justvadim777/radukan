@@ -1,14 +1,9 @@
 import { Metadata } from "next";
 import { notFound } from "next/navigation";
-import { getPostBySlug, getAllSlugs } from "@/lib/blog";
+import { getPostBySlug } from "@/lib/blog";
 import { MDXRemote } from "next-mdx-remote/rsc";
 import { AnimatedSection } from "@/components/AnimatedSection";
 import { Link } from "@/i18n/navigation";
-
-export async function generateStaticParams() {
-  const slugs = getAllSlugs();
-  return slugs.map((slug) => ({ slug }));
-}
 
 export async function generateMetadata({
   params,
