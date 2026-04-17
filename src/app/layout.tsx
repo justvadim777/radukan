@@ -31,6 +31,9 @@ export const metadata: Metadata = {
   twitter: {
     card: "summary_large_image",
   },
+  alternates: {
+    canonical: "https://raducan.pro",
+  },
   robots: {
     index: true,
     follow: true,
