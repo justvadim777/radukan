@@ -29,9 +29,9 @@ export function Footer() {
         <div className="flex gap-[60px] max-md:flex-wrap max-md:gap-10">
           {/* Products */}
           <div>
-            <h4 className="text-[11px] tracking-[2px] uppercase text-gold mb-5">
+            <h3 className="text-[11px] tracking-[2px] uppercase text-gold mb-5">
               {t("products")}
-            </h4>
+            </h3>
             <ul className="list-none flex flex-col gap-2.5">
               <li>
                 <Link
@@ -62,9 +62,9 @@ export function Footer() {
 
           {/* Pages */}
           <div>
-            <h4 className="text-[11px] tracking-[2px] uppercase text-gold mb-5">
+            <h3 className="text-[11px] tracking-[2px] uppercase text-gold mb-5">
               {locale === "ru" ? "Страницы" : "Pages"}
-            </h4>
+            </h3>
             <ul className="list-none flex flex-col gap-2.5">
               <li>
                 <Link
@@ -103,9 +103,9 @@ export function Footer() {
 
           {/* Contact */}
           <div>
-            <h4 className="text-[11px] tracking-[2px] uppercase text-gold mb-5">
+            <h3 className="text-[11px] tracking-[2px] uppercase text-gold mb-5">
               {t("contacts")}
-            </h4>
+            </h3>
             <ul className="list-none flex flex-col gap-2.5">
               <li>
                 <a
