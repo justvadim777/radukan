@@ -60,14 +60,14 @@ export default function RootLayout({
   return (
     <html className={`${outfit.variable} ${inter.variable}`} suppressHydrationWarning>
       <head>
-        <script async src="https://www.googletagmanager.com/gtag/js?id=G-Y3EMK47Y8L" />
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-YZEMX47YBL" />
         <script
           dangerouslySetInnerHTML={{
             __html: `
               window.dataLayer=window.dataLayer||[];
               function gtag(){dataLayer.push(arguments);}
               gtag('js',new Date());
-              gtag('config','G-Y3EMK47Y8L');
+              gtag('config','G-YZEMX47YBL');
             `,
           }}
         />
