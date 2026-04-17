@@ -90,6 +90,77 @@ body {
   color: var(--color-text);
 }
 
+/* MDX article prose */
+.prose-raducan h2 {
+  font-family: var(--font-heading);
+  font-weight: 700;
+  font-size: 22px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-top: 48px;
+  margin-bottom: 16px;
+  color: var(--color-text);
+}
+
+.prose-raducan h3 {
+  font-family: var(--font-heading);
+  font-weight: 600;
+  font-size: 18px;
+  margin-top: 32px;
+  margin-bottom: 12px;
+  color: var(--color-text);
+}
+
+.prose-raducan p {
+  color: var(--color-muted);
+  font-size: 15px;
+  line-height: 1.8;
+  margin-bottom: 20px;
+}
+
+.prose-raducan strong {
+  color: var(--color-text);
+  font-weight: 600;
+}
+
+.prose-raducan ul,
+.prose-raducan ol {
+  color: var(--color-muted);
+  font-size: 15px;
+  line-height: 1.8;
+  margin-bottom: 20px;
+  padding-left: 24px;
+}
+
+.prose-raducan li {
+  margin-bottom: 8px;
+}
+
+.prose-raducan a {
+  color: var(--color-gold);
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+.prose-raducan a:hover {
+  color: var(--color-text);
+}
+
+.prose-raducan blockquote {
+  border-left: 2px solid var(--color-gold);
+  padding-left: 20px;
+  margin: 24px 0;
+  color: var(--color-muted);
+  font-style: italic;
+}
+
+.prose-raducan hr {
+  border: none;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--color-gold-border), transparent);
+  margin: 40px 0;
+}
+
 /* Scrollbar */
 ::-webkit-scrollbar {
   width: 8px;
