@@ -168,7 +168,7 @@ export default async function HookahPage() {
             {c.ctaButton}
           </Link>
           <a
-            href="https://t.me/MyPROf_IT"
+            href="https://t.me/Raducanpro"
             target="_blank"
             rel="noopener noreferrer"
             className="border border-gold-border text-text px-8 py-[14px] font-heading font-semibold text-[13px] tracking-[2px] uppercase no-underline transition-all duration-300 hover:border-gold hover:text-gold"

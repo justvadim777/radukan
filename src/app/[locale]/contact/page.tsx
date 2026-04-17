@@ -78,7 +78,7 @@ export default async function ContactPage() {
             <div className="section-label mb-8">{c.contactMethods}</div>
             <div className="flex flex-col gap-4">
               <a
-                href="https://t.me/MyPROf_IT"
+                href="https://t.me/Raducanpro"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex items-center gap-5 p-6 bg-surface border border-gold-border no-underline text-inherit transition-all duration-300 hover:-translate-y-0.5"

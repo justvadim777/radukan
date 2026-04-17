@@ -162,7 +162,7 @@ export default async function TechPage() {
           {c.ctaSubtitle}
         </p>
         <div className="mt-8">
-          <Button href="https://t.me/MyPROf_IT" external>
+          <Button href="https://t.me/Raducanpro" external>
             {c.ctaButton}
           </Button>
         </div>

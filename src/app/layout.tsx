@@ -53,7 +53,7 @@ const jsonLd = {
   jobTitle: "Разработчик и предприниматель",
   email: "vadim@radukan.ru",
   sameAs: [
-    "https://t.me/MyPROf_IT",
+    "https://t.me/Raducanpro",
     "https://github.com/justvadim777",
   ],
   knowsAbout: ["Next.js", "React", "TypeScript", "FastAPI", "Docker", "PostgreSQL"],

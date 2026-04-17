@@ -109,7 +109,7 @@ export function Footer() {
             <ul className="list-none flex flex-col gap-2.5">
               <li>
                 <a
-                  href="https://t.me/MyPROf_IT"
+                  href="https://t.me/Raducanpro"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="text-muted no-underline text-[13px] transition-colors duration-300 hover:text-text"
@@ -143,7 +143,7 @@ export function Footer() {
         </span>
         <div className="flex gap-4">
           <a
-            href="https://t.me/MyPROf_IT"
+            href="https://t.me/Raducanpro"
             target="_blank"
             rel="noopener noreferrer"
             className="w-9 h-9 border border-gold-border flex items-center justify-center text-muted no-underline text-[13px] transition-all duration-300 hover:border-gold hover:text-gold"
