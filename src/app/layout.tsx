@@ -1,12 +1,6 @@
 import type { Metadata } from "next";
-import { Outfit, Inter } from "next/font/google";
+import { Inter } from "next/font/google";
 import "./globals.css";
-
-const outfit = Outfit({
-  variable: "--font-heading",
-  subsets: ["latin", "latin-ext"],
-  display: "swap",
-});
 
 const inter = Inter({
   variable: "--font-body",
@@ -16,11 +10,11 @@ const inter = Inter({
 
 export const metadata: Metadata = {
   title: {
-    default: "Вадим Радукан — разработчик и предприниматель | raducan.pro",
-    template: "%s | raducan.pro",
+    default: "Raducan — Intelligent systems. Connected results.",
+    template: "%s | Raducan",
   },
   description:
-    "Вадим Радукан — разработчик и предприниматель. Создаю продукты для HoReCa, инвестиций и автоматизации бизнеса.",
+    "CRM, SaaS и автоматизация для малого бизнеса. Создаю продукты для HoReCa, инвестиций и автоматизации — от MVP до масштабирования.",
   metadataBase: new URL("https://raducan.pro"),
   openGraph: {
     type: "website",
@@ -52,11 +46,15 @@ const jsonLd = {
   url: "https://raducan.pro",
   jobTitle: "Разработчик и предприниматель",
   email: "vadim@radukan.ru",
-  sameAs: [
-    "https://t.me/Raducanpro",
-    "https://github.com/justvadim777",
+  sameAs: ["https://t.me/Raducanpro", "https://github.com/justvadim777"],
+  knowsAbout: [
+    "Next.js",
+    "React",
+    "TypeScript",
+    "FastAPI",
+    "Docker",
+    "PostgreSQL",
   ],
-  knowsAbout: ["Next.js", "React", "TypeScript", "FastAPI", "Docker", "PostgreSQL"],
 };
 
 export default function RootLayout({
@@ -65,9 +63,12 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html className={`${outfit.variable} ${inter.variable}`} suppressHydrationWarning>
+    <html className={inter.variable} suppressHydrationWarning>
       <head>
-        <script async src="https://www.googletagmanager.com/gtag/js?id=G-YZEMX47YBL" />
+        <script
+          async
+          src="https://www.googletagmanager.com/gtag/js?id=G-YZEMX47YBL"
+        />
         <script
           dangerouslySetInnerHTML={{
             __html: `
@@ -98,13 +99,15 @@ export default function RootLayout({
         />
         <noscript>
           <div>
-            <img src="https://mc.yandex.ru/watch/108598001" style={{ position: 'absolute', left: '-9999px' }} alt="" />
+            <img
+              src="https://mc.yandex.ru/watch/108598001"
+              style={{ position: "absolute", left: "-9999px" }}
+              alt=""
+            />
           </div>
         </noscript>
       </head>
-      <body className="min-h-screen flex flex-col antialiased">
-        {children}
-      </body>
+      <body className="min-h-screen flex flex-col antialiased">{children}</body>
     </html>
   );
 }

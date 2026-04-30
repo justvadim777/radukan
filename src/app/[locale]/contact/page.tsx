@@ -90,7 +90,7 @@ export default async function ContactPage() {
                   <div className="text-[11px] tracking-[1.5px] uppercase text-muted mb-1">
                     Telegram
                   </div>
-                  <div className="font-medium">@MyPROf_IT</div>
+                  <div className="font-medium">@Raducanpro</div>
                 </div>
               </a>
               <a

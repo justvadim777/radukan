@@ -1,164 +1,139 @@
 "use client";
 
 import { Link } from "@/i18n/navigation";
-import { useLocale, useTranslations } from "next-intl";
+import { useTranslations } from "next-intl";
 
 export function Footer() {
   const t = useTranslations("footer");
-  const locale = useLocale();
 
   return (
-    <footer
-      className="px-[60px] pt-[60px] pb-10 relative max-md:px-5 max-md:pt-10 max-md:pb-[30px]"
-      style={{ borderTop: "1px solid rgba(212,175,55,0.1)" }}
-    >
-      {/* Top */}
-      <div className="flex justify-between items-start mb-12 max-md:flex-col max-md:gap-10">
-        <div>
-          <div className="font-heading font-[900] text-[28px] tracking-[5px] text-gold mb-3">
-            RADUCAN
-          </div>
-          <p className="text-muted text-[13px] max-w-[240px] leading-[1.6]">
-            {t("slogan")}.{" "}
-            {locale === "ru"
-              ? "Разработчик и предприниматель."
-              : "Developer and entrepreneur."}
-          </p>
-        </div>
-
-        <div className="flex gap-[60px] max-md:flex-wrap max-md:gap-10">
-          {/* Products */}
-          <div>
-            <h3 className="text-[11px] tracking-[2px] uppercase text-gold mb-5">
-              {t("products")}
-            </h3>
-            <ul className="list-none flex flex-col gap-2.5">
-              <li>
-                <Link
-                  href="/projects/hookah"
-                  className="text-muted no-underline text-[13px] transition-colors duration-300 hover:text-text"
-                >
-                  Raducan Hookah
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="/projects/capital"
-                  className="text-muted no-underline text-[13px] transition-colors duration-300 hover:text-text"
-                >
-                  Raducan Capital
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="/projects/tech"
-                  className="text-muted no-underline text-[13px] transition-colors duration-300 hover:text-text"
-                >
-                  Raducan Tech
-                </Link>
-              </li>
-            </ul>
-          </div>
-
-          {/* Pages */}
-          <div>
-            <h3 className="text-[11px] tracking-[2px] uppercase text-gold mb-5">
-              {locale === "ru" ? "Страницы" : "Pages"}
-            </h3>
-            <ul className="list-none flex flex-col gap-2.5">
-              <li>
-                <Link
-                  href="/about"
-                  className="text-muted no-underline text-[13px] transition-colors duration-300 hover:text-text"
-                >
-                  {locale === "ru" ? "Обо мне" : "About"}
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="/blog"
-                  className="text-muted no-underline text-[13px] transition-colors duration-300 hover:text-text"
-                >
-                  {locale === "ru" ? "Блог" : "Blog"}
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="/tools"
-                  className="text-muted no-underline text-[13px] transition-colors duration-300 hover:text-text"
-                >
-                  {locale === "ru" ? "Инструменты" : "Tools"}
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="/contact"
-                  className="text-muted no-underline text-[13px] transition-colors duration-300 hover:text-text"
-                >
-                  {locale === "ru" ? "Контакт" : "Contact"}
-                </Link>
-              </li>
-            </ul>
-          </div>
-
-          {/* Contact */}
-          <div>
-            <h3 className="text-[11px] tracking-[2px] uppercase text-gold mb-5">
-              {t("contacts")}
-            </h3>
-            <ul className="list-none flex flex-col gap-2.5">
-              <li>
-                <a
-                  href="https://t.me/Raducanpro"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-muted no-underline text-[13px] transition-colors duration-300 hover:text-text"
-                >
-                  Telegram
-                </a>
-              </li>
-              <li>
-                <a
-                  href="mailto:vadim@radukan.ru"
-                  className="text-muted no-underline text-[13px] transition-colors duration-300 hover:text-text"
-                >
-                  Email
-                </a>
-              </li>
-              <li>
-                <span className="text-muted text-[13px]">raducan.pro</span>
-              </li>
-            </ul>
-          </div>
-        </div>
+    <footer className="relative z-10 mx-auto grid w-[min(1280px,calc(100%-56px))] gap-10 pb-12 pt-12 text-[var(--muted)] md:grid-cols-[1.7fr_repeat(4,1fr)]">
+      {/* Brand */}
+      <div>
+        <Link
+          href="/"
+          className="inline-flex items-center gap-3 text-[var(--text)] no-underline font-extrabold tracking-[0.02em]"
+        >
+          <span
+            className="grid h-[34px] w-[34px] place-items-center rounded-[9px] border border-[var(--line-strong)] text-white font-bold"
+            style={{
+              background:
+                "linear-gradient(135deg, rgba(45,125,255,.32), rgba(4,12,24,.9))",
+              boxShadow:
+                "0 0 22px rgba(45,125,255,.18), inset 0 0 18px rgba(86,199,255,.12)",
+            }}
+          >
+            R
+          </span>
+          <span>RADUCAN.PRO</span>
+        </Link>
+        <p className="mt-4 max-w-[210px] text-[var(--muted)] leading-[1.6] text-sm">
+          {t("tagline")}
+        </p>
       </div>
 
-      {/* Bottom */}
-      <div
-        className="flex justify-between items-center pt-8"
-        style={{ borderTop: "1px solid rgba(255,255,255,0.04)" }}
-      >
-        <span className="text-[12px] text-muted tracking-[0.5px]">
-          © {new Date().getFullYear()} Raducan. {t("rights")}.
-        </span>
-        <div className="flex gap-4">
-          <a
-            href="https://t.me/Raducanpro"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="w-9 h-9 border border-gold-border flex items-center justify-center text-muted no-underline text-[13px] transition-all duration-300 hover:border-gold hover:text-gold"
-          >
-            T
-          </a>
-          <a
-            href="https://github.com/justvadim777"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="w-9 h-9 border border-gold-border flex items-center justify-center text-muted no-underline text-[13px] transition-all duration-300 hover:border-gold hover:text-gold"
-          >
-            G
-          </a>
-        </div>
+      {/* Products */}
+      <div>
+        <h4 className="mb-[18px] text-[13px] font-medium uppercase tracking-[0.08em] text-white">
+          {t("products")}
+        </h4>
+        <Link
+          href="/projects/hookah"
+          className="mb-[11px] block text-[#c9d7e7] no-underline text-sm transition-colors hover:text-white"
+        >
+          Raducan Hookah
+        </Link>
+        <Link
+          href="/projects/capital"
+          className="mb-[11px] block text-[#c9d7e7] no-underline text-sm transition-colors hover:text-white"
+        >
+          Raducan Capital
+        </Link>
+        <Link
+          href="/projects"
+          className="mb-[11px] block text-[#c9d7e7] no-underline text-sm transition-colors hover:text-white"
+        >
+          {t("allProducts")}
+        </Link>
+      </div>
+
+      {/* Services */}
+      <div>
+        <h4 className="mb-[18px] text-[13px] font-medium uppercase tracking-[0.08em] text-white">
+          {t("services")}
+        </h4>
+        <Link
+          href="/projects/tech"
+          className="mb-[11px] block text-[#c9d7e7] no-underline text-sm transition-colors hover:text-white"
+        >
+          {t("crmDev")}
+        </Link>
+        <Link
+          href="/projects/tech"
+          className="mb-[11px] block text-[#c9d7e7] no-underline text-sm transition-colors hover:text-white"
+        >
+          {t("saasDev")}
+        </Link>
+        <Link
+          href="/projects/tech"
+          className="mb-[11px] block text-[#c9d7e7] no-underline text-sm transition-colors hover:text-white"
+        >
+          {t("customDev")}
+        </Link>
+      </div>
+
+      {/* Company */}
+      <div>
+        <h4 className="mb-[18px] text-[13px] font-medium uppercase tracking-[0.08em] text-white">
+          {t("company")}
+        </h4>
+        <Link
+          href="/about"
+          className="mb-[11px] block text-[#c9d7e7] no-underline text-sm transition-colors hover:text-white"
+        >
+          {t("about")}
+        </Link>
+        <Link
+          href="/blog"
+          className="mb-[11px] block text-[#c9d7e7] no-underline text-sm transition-colors hover:text-white"
+        >
+          {t("blog")}
+        </Link>
+        <Link
+          href="/tools"
+          className="mb-[11px] block text-[#c9d7e7] no-underline text-sm transition-colors hover:text-white"
+        >
+          {t("tools")}
+        </Link>
+      </div>
+
+      {/* Contact */}
+      <div>
+        <h4 className="mb-[18px] text-[13px] font-medium uppercase tracking-[0.08em] text-white">
+          {t("contact")}
+        </h4>
+        <a
+          href="mailto:vadim@radukan.ru"
+          className="mb-[11px] block text-[#c9d7e7] no-underline text-sm transition-colors hover:text-white"
+        >
+          vadim@radukan.ru
+        </a>
+        <a
+          href="https://t.me/Raducanpro"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="mb-[11px] block text-[#c9d7e7] no-underline text-sm transition-colors hover:text-white"
+        >
+          Telegram
+        </a>
+        <a
+          href="https://github.com/justvadim777"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="mb-[11px] block text-[#c9d7e7] no-underline text-sm transition-colors hover:text-white"
+        >
+          GitHub
+        </a>
       </div>
     </footer>
   );

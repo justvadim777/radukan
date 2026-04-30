@@ -1,17 +1,19 @@
 import { HeroSection } from "@/components/home/HeroSection";
-import { ProductsSection } from "@/components/home/ProductsSection";
+import { StatsSection } from "@/components/home/StatsSection";
+import { ServicesSection } from "@/components/home/ServicesSection";
 import { ApproachSection } from "@/components/home/ApproachSection";
-import { BlogPreviewSection } from "@/components/home/BlogPreviewSection";
+import { CaseStudySection } from "@/components/home/CaseStudySection";
+import { CtaSection } from "@/components/home/CtaSection";
 
 export default function Home() {
   return (
     <>
       <HeroSection />
-      <ProductsSection />
-      <div className="divider" />
+      <StatsSection />
+      <ServicesSection />
       <ApproachSection />
-      <div className="divider" />
-      <BlogPreviewSection />
+      <CaseStudySection />
+      <CtaSection />
     </>
   );
 }

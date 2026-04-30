@@ -26,18 +26,18 @@ export function Card({
   const content = (
     <motion.div
       whileHover={{ y: -4 }}
-      className={`group rounded-none border border-gold-border bg-surface p-6 transition-shadow hover:shadow-[0_0_30px_rgba(212,175,55,0.15)] ${className}`}
+      className={`card group p-6 transition-all hover:border-[var(--line-strong)] ${className}`}
     >
       {tag && (
-        <span className="mb-3 inline-block text-xs font-medium uppercase tracking-wider text-gold">
+        <span className="mb-3 inline-block text-xs font-bold uppercase tracking-[0.18em] text-[#65a9ff]">
           {tag}
         </span>
       )}
-      <h3 className="font-heading text-xl font-semibold">{title}</h3>
-      <p className="mt-2 text-sm text-muted leading-relaxed">{description}</p>
+      <h3 className="text-xl font-semibold text-[var(--text)]">{title}</h3>
+      <p className="mt-2 text-sm text-[#a9bbce] leading-relaxed">{description}</p>
       {children}
       {cta && (
-        <span className="mt-4 inline-block text-sm font-medium text-gold transition-colors group-hover:text-text">
+        <span className="mt-4 inline-block text-sm font-bold text-[#69aaff] transition-colors group-hover:text-white">
           {cta} →
         </span>
       )}
@@ -45,7 +45,11 @@ export function Card({
   );
 
   if (href) {
-    return <Link href={href as "/"}>{content}</Link>;
+    return (
+      <Link href={href as "/"} className="no-underline">
+        {content}
+      </Link>
+    );
   }
   return content;
 }

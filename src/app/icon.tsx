@@ -13,16 +13,17 @@ export default function Icon() {
           display: "flex",
           alignItems: "center",
           justifyContent: "center",
-          backgroundColor: "#16181A",
+          backgroundColor: "#030811",
           borderRadius: 4,
           fontFamily: "sans-serif",
+          border: "1px solid rgba(91, 166, 255, 0.34)",
         }}
       >
         <span
           style={{
             fontSize: 22,
             fontWeight: 900,
-            color: "#D4AF37",
+            color: "#56c7ff",
           }}
         >
           R

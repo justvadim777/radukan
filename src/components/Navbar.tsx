@@ -13,11 +13,10 @@ export function Navbar() {
   const router = useRouter();
 
   const navLinks = [
-    { href: "/" as const, label: t("home") },
-    { href: "/projects" as const, label: t("projects") },
-    { href: "/projects/hookah" as const, label: "Hookah" },
-    { href: "/blog" as const, label: t("blog") },
+    { href: "/projects" as const, label: t("products") },
+    { href: "/projects/tech" as const, label: t("services") },
     { href: "/about" as const, label: t("about") },
+    { href: "/blog" as const, label: t("blog") },
     { href: "/contact" as const, label: t("contact") },
   ];
 
@@ -27,43 +26,48 @@ export function Navbar() {
   };
 
   return (
-    <header
-      className="fixed top-0 left-0 right-0 z-[100] flex items-center justify-between px-[60px] py-5 bg-bg/85 backdrop-blur-[20px]"
-      style={{ borderBottom: "1px solid rgba(212,175,55,0.08)" }}
-    >
+    <header className="relative z-10 mx-auto flex h-[92px] w-[min(1280px,calc(100%-56px))] items-center justify-between border-b border-[var(--line)]">
+      {/* Brand */}
       <Link
         href="/"
-        className="font-heading font-[900] text-[22px] tracking-[4px] text-gold no-underline"
+        className="inline-flex items-center gap-3 text-[var(--text)] no-underline font-extrabold tracking-[0.02em]"
       >
-        RADUCAN
+        <span
+          className="grid h-[34px] w-[34px] place-items-center rounded-[9px] border border-[var(--line-strong)] text-white font-bold"
+          style={{
+            background:
+              "linear-gradient(135deg, rgba(45,125,255,.32), rgba(4,12,24,.9))",
+            boxShadow:
+              "0 0 22px rgba(45,125,255,.18), inset 0 0 18px rgba(86,199,255,.12)",
+          }}
+        >
+          R
+        </span>
+        <span>RADUCAN.PRO</span>
       </Link>
 
       {/* Desktop nav */}
-      <ul className="hidden md:flex items-center gap-9 list-none">
-        {navLinks.map((link) => (
-          <li key={link.href}>
-            <Link
-              href={link.href}
-              className="text-muted no-underline text-[13px] tracking-[1.5px] uppercase transition-colors duration-300 hover:text-gold"
-            >
-              {link.label}
-            </Link>
-          </li>
+      <nav className="hidden md:flex gap-11" aria-label="Main navigation">
+        {navLinks.map((link, i) => (
+          <Link
+            key={`${link.href}-${i}`}
+            href={link.href}
+            className="text-[#c9d7e7] no-underline text-sm transition-colors hover:text-white"
+          >
+            {link.label}
+          </Link>
         ))}
-      </ul>
+      </nav>
 
-      <div className="hidden md:flex items-center gap-5">
+      <div className="hidden md:flex items-center gap-4">
         <button
           onClick={switchLocale}
-          className="text-[12px] tracking-[1px] text-muted cursor-pointer border border-gold-border px-[10px] py-1 transition-all duration-300 hover:text-gold hover:border-gold bg-transparent"
+          className="text-xs tracking-wider text-[#c9d7e7] cursor-pointer border border-[var(--line-strong)] px-2.5 py-1 rounded transition-all hover:text-white hover:border-[var(--blue)] bg-transparent"
         >
           {locale === "ru" ? "RU / EN" : "EN / RU"}
         </button>
-        <Link
-          href="/contact"
-          className="bg-gold text-bg px-5 py-[10px] font-heading font-bold text-[11px] tracking-[2px] uppercase no-underline inline-block transition-all duration-300 hover:shadow-[0_0_30px_rgba(212,175,55,0.4)]"
-        >
-          {locale === "ru" ? "Связаться" : "Contact"}
+        <Link href="/contact" className="btn btn-outline text-xs">
+          {t("ctaButton")} <span>→</span>
         </Link>
       </div>
 
@@ -71,16 +75,16 @@ export function Navbar() {
       <button
         onClick={() => setIsOpen(!isOpen)}
         className="md:hidden flex flex-col gap-1.5 p-2 bg-transparent border-none"
-        aria-label="Меню"
+        aria-label="Menu"
       >
         <span
-          className={`block h-0.5 w-6 bg-text transition-transform duration-300 ${isOpen ? "translate-y-2 rotate-45" : ""}`}
+          className={`block h-0.5 w-6 bg-[var(--text)] transition-transform duration-300 ${isOpen ? "translate-y-2 rotate-45" : ""}`}
         />
         <span
-          className={`block h-0.5 w-6 bg-text transition-opacity duration-300 ${isOpen ? "opacity-0" : ""}`}
+          className={`block h-0.5 w-6 bg-[var(--text)] transition-opacity duration-300 ${isOpen ? "opacity-0" : ""}`}
         />
         <span
-          className={`block h-0.5 w-6 bg-text transition-transform duration-300 ${isOpen ? "-translate-y-2 -rotate-45" : ""}`}
+          className={`block h-0.5 w-6 bg-[var(--text)] transition-transform duration-300 ${isOpen ? "-translate-y-2 -rotate-45" : ""}`}
         />
       </button>
 
@@ -92,16 +96,15 @@ export function Navbar() {
             animate={{ height: "auto", opacity: 1 }}
             exit={{ height: 0, opacity: 0 }}
             transition={{ duration: 0.3 }}
-            className="absolute top-full left-0 right-0 overflow-hidden md:hidden"
-            style={{ borderTop: "1px solid rgba(212,175,55,0.08)" }}
+            className="absolute top-full left-0 right-0 overflow-hidden md:hidden border-t border-[var(--line)] bg-[var(--bg)]"
           >
-            <ul className="flex flex-col gap-4 px-5 py-6 bg-bg list-none">
-              {navLinks.map((link) => (
-                <li key={link.href}>
+            <ul className="flex flex-col gap-4 px-5 py-6 list-none">
+              {navLinks.map((link, i) => (
+                <li key={`${link.href}-m-${i}`}>
                   <Link
                     href={link.href}
                     onClick={() => setIsOpen(false)}
-                    className="block text-base text-muted no-underline transition-colors hover:text-gold"
+                    className="block text-base text-[#c9d7e7] no-underline transition-colors hover:text-white"
                   >
                     {link.label}
                   </Link>
@@ -110,10 +113,19 @@ export function Navbar() {
               <li className="flex items-center gap-3 pt-2">
                 <button
                   onClick={switchLocale}
-                  className="text-[12px] tracking-[1px] text-muted border border-gold-border px-[10px] py-1 bg-transparent hover:text-gold hover:border-gold transition-all duration-300"
+                  className="text-xs tracking-wider text-[#c9d7e7] border border-[var(--line-strong)] px-2.5 py-1 rounded bg-transparent hover:text-white hover:border-[var(--blue)] transition-all"
                 >
                   {locale === "ru" ? "RU / EN" : "EN / RU"}
                 </button>
+              </li>
+              <li>
+                <Link
+                  href="/contact"
+                  onClick={() => setIsOpen(false)}
+                  className="btn btn-primary w-full text-xs"
+                >
+                  {t("ctaButton")}
+                </Link>
               </li>
             </ul>
           </motion.div>

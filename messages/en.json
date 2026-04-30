@@ -1,49 +1,88 @@
 {
   "nav": {
-    "home": "Home",
+    "products": "Products",
+    "services": "Services",
     "about": "About",
-    "projects": "Projects",
     "blog": "Blog",
-    "tools": "Tools",
-    "contact": "Contact"
+    "contact": "Contact",
+    "ctaButton": "Discuss a project",
+    "home": "Home",
+    "tools": "Tools"
   },
   "hero": {
-    "title": "Building systems",
-    "titleAccent": "for business",
-    "subtitle": "Vadim Radukan — developer and entrepreneur. Creating products for HoReCa, investments, and business automation. From idea to working product in 2–4 weeks.",
-    "cta1": "My projects",
-    "cta2": "Discuss a task"
+    "eyebrow": "BUILDING SYSTEMS FOR BUSINESS",
+    "h1Line1": "Intelligent systems.",
+    "h1Line2": "Connected results.",
+    "subhead": "CRM, SaaS and automation for small business",
+    "text": "I help small businesses operate like a big system. Custom CRM, SaaS products and automation — from MVP to scale.",
+    "ctaPrimary": "View products",
+    "ctaOutline": "Discuss a project"
   },
-  "products": {
-    "title": "Raducan Ecosystem",
-    "hookah": {
-      "tag": "CRM · HoReCa",
-      "title": "Raducan Hookah",
-      "description": "Cloud CRM for hookah lounges. Guest management, reservations, loyalty program, and analytics in one place.",
-      "cta": "Learn more"
-    },
-    "capital": {
-      "tag": "SaaS · Investments",
-      "title": "Raducan Capital",
-      "description": "Investment dashboard. Tinkoff, BCS, Bybit in a single portfolio with analytics and goal tracker.",
-      "cta": "Learn more"
-    },
-    "tech": {
-      "tag": "Development · Freelance",
-      "title": "Raducan Tech",
-      "description": "Websites, Telegram bots, SaaS products, and business process automation.",
-      "cta": "Discuss a task"
-    }
+  "blueprint": {
+    "automation": "AUTOMATION",
+    "analytics": "ANALYTICS",
+    "crm": "CRM",
+    "integrations": "INTEGRATIONS"
+  },
+  "stats": {
+    "yearsValue": "5+",
+    "yearsLabel": "years building",
+    "projectsValue": "20+",
+    "projectsLabel": "projects delivered",
+    "focusValue": "100%",
+    "focusLabel": "focus on results"
+  },
+  "services": {
+    "eyebrow": "WHAT I BUILD",
+    "heading": "Digital systems that drive business forward",
+    "learnMore": "Learn more",
+    "crmTitle": "CRM Systems",
+    "crmDescription": "Custom CRM tailored to your sales process. Track leads, close deals, grow revenue. Example — Raducan Hookah for HoReCa.",
+    "saasTitle": "SaaS Platforms",
+    "saasDescription": "Scalable SaaS on a modern stack. From MVP to full-scale platform. Example — Raducan Capital.",
+    "automationTitle": "Automation & Integrations",
+    "automationDescription": "Web apps, Telegram bots and automation built for unique business needs. Any stack, any scale."
   },
   "approach": {
-    "title": "Building systems, not doing tasks",
-    "subtitle": "Helping small businesses operate like big systems. Result — not process."
+    "eyebrow": "HOW I WORK",
+    "heading": "A systematic approach to every project",
+    "discoveryText": "I analyze the business problem and pick the optimal solution.",
+    "strategyText": "I design the architecture and lay out a clear roadmap.",
+    "developmentText": "I write clean, scalable code following best practices.",
+    "testingText": "I make sure everything works correctly before launch.",
+    "launchText": "Deploy, monitoring and ongoing support after release."
+  },
+  "caseStudy": {
+    "eyebrow": "LATEST CASE",
+    "heading": "CRM for Ostrov Lounge hookah bar",
+    "description": "Raducan Hookah implementation: guest tracking, reservations, loyalty program and analytics in one place.",
+    "metric1Value": "+27%",
+    "metric1Label": "average check",
+    "metric2Value": "−40%",
+    "metric2Label": "time on reporting",
+    "metric3Value": "+12",
+    "metric3Label": "repeat guests/month",
+    "link": "View case"
+  },
+  "cta": {
+    "heading": "Got a project in mind?",
+    "text": "Get in touch — let's talk about building something solid.",
+    "button": "Get in touch"
   },
   "footer": {
-    "slogan": "Building systems for business",
+    "tagline": "Building systems that help businesses grow.",
     "products": "Products",
-    "resources": "Resources",
-    "contacts": "Contacts",
-    "rights": "All rights reserved"
+    "services": "Services",
+    "company": "Company",
+    "contact": "Contact",
+    "allProducts": "All products",
+    "crmDev": "CRM Development",
+    "saasDev": "SaaS Development",
+    "customDev": "Custom Development",
+    "about": "About",
+    "blog": "Blog",
+    "tools": "Tools",
+    "rights": "All rights reserved",
+    "slogan": "Building systems for business"
   }
 }

@@ -1,7 +1,7 @@
 import { ImageResponse } from "next/og";
 
 export const runtime = "edge";
-export const alt = "RADUCAN — Строю системы для бизнеса";
+export const alt = "RADUCAN — Intelligent systems. Connected results.";
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 
@@ -16,37 +16,52 @@ export default async function Image() {
           flexDirection: "column",
           alignItems: "center",
           justifyContent: "center",
-          backgroundColor: "#16181A",
+          background:
+            "linear-gradient(135deg, #02060d 0%, #07111e 50%, #030811 100%)",
           fontFamily: "sans-serif",
         }}
       >
         <div
           style={{
-            fontSize: 72,
+            fontSize: 80,
             fontWeight: 900,
-            letterSpacing: "8px",
-            color: "#D4AF37",
-            marginBottom: 24,
+            letterSpacing: "-2px",
+            color: "#eef6ff",
+            marginBottom: 16,
+            lineHeight: 1,
           }}
         >
-          RADUCAN
+          Intelligent systems.
         </div>
         <div
           style={{
-            fontSize: 28,
-            color: "#8A8A8E",
-            letterSpacing: "2px",
+            fontSize: 80,
+            fontWeight: 900,
+            letterSpacing: "-2px",
+            color: "#66a8ff",
+            marginBottom: 32,
+            lineHeight: 1,
           }}
         >
-          СТРОЮ СИСТЕМЫ ДЛЯ БИЗНЕСА
+          Connected results.
+        </div>
+        <div
+          style={{
+            fontSize: 26,
+            color: "#8fa6bf",
+            letterSpacing: "1px",
+          }}
+        >
+          CRM · SaaS · Automation
         </div>
         <div
           style={{
             position: "absolute",
             bottom: 40,
             fontSize: 16,
-            color: "#D4AF37",
-            letterSpacing: "3px",
+            color: "#56c7ff",
+            letterSpacing: "4px",
+            fontWeight: 700,
           }}
         >
           RADUCAN.PRO

@@ -39,9 +39,10 @@ export default async function LocaleLayout({
 
   return (
     <NextIntlClientProvider locale={locale} messages={messages}>
-      <div className="grain-overlay" aria-hidden="true" />
       <Navbar />
-      <main className="flex-1">{children}</main>
+      <main className="relative z-10 mx-auto w-[min(1280px,calc(100%-56px))] flex-1">
+        {children}
+      </main>
       <Footer />
     </NextIntlClientProvider>
   );
