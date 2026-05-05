@@ -1,31 +1,26 @@
-"use client";
-
-import { motion } from "framer-motion";
 import { CSSProperties, ReactNode } from "react";
 
 interface AnimatedSectionProps {
   children: ReactNode;
   className?: string;
+  /** kept for backwards compatibility — no longer applied via JS */
   delay?: number;
   style?: CSSProperties;
 }
 
+/**
+ * Below-the-fold section wrapper.
+ * Uses pure CSS keyframes for entry animation — content is fully visible
+ * even if JavaScript fails or is disabled (no inline opacity:0 in SSR).
+ */
 export function AnimatedSection({
   children,
   className = "",
-  delay = 0,
   style,
 }: AnimatedSectionProps) {
   return (
-    <motion.section
-      initial={{ opacity: 0, y: 30 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, amount: 0.1 }}
-      transition={{ duration: 0.6, delay, ease: "easeOut" }}
-      className={className}
-      style={style}
-    >
+    <section className={`fade-up-section ${className}`} style={style}>
       {children}
-    </motion.section>
+    </section>
   );
 }

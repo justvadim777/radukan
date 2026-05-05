@@ -1,9 +1,7 @@
-"use client";
+import { getTranslations } from "next-intl/server";
 
-import { useTranslations } from "next-intl";
-
-export function Blueprint() {
-  const t = useTranslations("blueprint");
+export async function Blueprint() {
+  const t = await getTranslations("blueprint");
 
   return (
     <div

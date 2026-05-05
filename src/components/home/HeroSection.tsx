@@ -1,30 +1,17 @@
-"use client";
-
-import { motion } from "framer-motion";
 import { Link } from "@/i18n/navigation";
-import { useTranslations } from "next-intl";
+import { getTranslations } from "next-intl/server";
 import { Blueprint } from "@/components/Blueprint";
 
-export function HeroSection() {
-  const t = useTranslations("hero");
+export async function HeroSection() {
+  const t = await getTranslations("hero");
 
   return (
     <section className="section-line relative grid min-h-[610px] grid-cols-1 items-center gap-9 py-16 md:grid-cols-[0.92fr_1.08fr]">
       <div>
-        <motion.p
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.1 }}
-          className="eyebrow"
-        >
-          {t("eyebrow")}
-        </motion.p>
+        <p className="eyebrow hero-reveal">{t("eyebrow")}</p>
 
-        <motion.h1
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.7, delay: 0.2 }}
-          className="mb-6 leading-[0.94] tracking-[-0.065em]"
+        <h1
+          className="mb-6 leading-[0.94] tracking-[-0.065em] hero-reveal-d1"
           style={{ fontSize: "clamp(48px, 5.4vw, 84px)" }}
         >
           {t("h1Line1")}
@@ -35,39 +22,24 @@ export function HeroSection() {
           >
             {t("h1Line2")}
           </span>
-        </motion.h1>
+        </h1>
 
-        <motion.p
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.7, delay: 0.35 }}
-          className="mb-4 text-base font-semibold text-[#66a8ff] tracking-wide"
-        >
+        <p className="mb-4 text-base font-semibold text-[#66a8ff] tracking-wide hero-reveal-d2">
           {t("subhead")}
-        </motion.p>
+        </p>
 
-        <motion.p
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.7, delay: 0.45 }}
-          className="max-w-[460px] text-[17px] leading-[1.75] text-[#c3d2e2]"
-        >
+        <p className="max-w-[460px] text-[17px] leading-[1.75] text-[#c3d2e2] hero-reveal-d3">
           {t("text")}
-        </motion.p>
+        </p>
 
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.7, delay: 0.6 }}
-          className="mt-9 flex flex-wrap gap-[18px]"
-        >
+        <div className="mt-9 flex flex-wrap gap-[18px] hero-reveal-d4">
           <Link href="/projects" className="btn btn-primary">
             {t("ctaPrimary")} <span>→</span>
           </Link>
           <Link href="/contact" className="btn btn-outline">
             {t("ctaOutline")}
           </Link>
-        </motion.div>
+        </div>
       </div>
 
       <Blueprint />
