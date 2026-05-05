@@ -60,7 +60,10 @@ free -h
     ("Pull latest", "cd /root/radukan && git pull origin main"),
     ("Install deps", "cd /root/radukan && npm install"),
     ("Build", "cd /root/radukan && NODE_OPTIONS='--max-old-space-size=1024' npm run build"),
-    ("Restart PM2", "cd /root/radukan && pm2 restart radukan && pm2 save"),
+    (
+        "Restart PM2 (with env reload)",
+        "cd /root/radukan && pm2 restart radukan --update-env && pm2 save",
+    ),
 ]
 
 for desc, cmd in steps:

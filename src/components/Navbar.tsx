@@ -1,9 +1,8 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useLocale, useTranslations } from "next-intl";
 import { Link, usePathname, useRouter } from "@/i18n/navigation";
-import { motion, AnimatePresence } from "framer-motion";
 
 export function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
@@ -24,6 +23,36 @@ export function Navbar() {
     const next = locale === "ru" ? "en" : "ru";
     router.replace(pathname, { locale: next });
   };
+
+  // Body scroll lock while menu is open
+  useEffect(() => {
+    if (isOpen) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "";
+    }
+    return () => {
+      document.body.style.overflow = "";
+    };
+  }, [isOpen]);
+
+  // Close on Escape
+  useEffect(() => {
+    const onEsc = (e: KeyboardEvent) => {
+      if (e.key === "Escape") setIsOpen(false);
+    };
+    window.addEventListener("keydown", onEsc);
+    return () => window.removeEventListener("keydown", onEsc);
+  }, []);
+
+  // Close when crossing md breakpoint (768px)
+  useEffect(() => {
+    const onResize = () => {
+      if (window.innerWidth >= 768) setIsOpen(false);
+    };
+    window.addEventListener("resize", onResize);
+    return () => window.removeEventListener("resize", onResize);
+  }, []);
 
   return (
     <header className="relative z-10 mx-auto flex h-[92px] w-[min(1280px,calc(100%-56px))] items-center justify-between border-b border-[var(--line)]">
@@ -71,11 +100,12 @@ export function Navbar() {
         </Link>
       </div>
 
-      {/* Mobile burger */}
+      {/* Mobile burger — stays above overlay (z-201) so its X-animation acts as the close button */}
       <button
         onClick={() => setIsOpen(!isOpen)}
-        className="md:hidden flex flex-col gap-1.5 p-2 bg-transparent border-none"
-        aria-label="Menu"
+        className="md:hidden flex flex-col gap-1.5 p-2 bg-transparent border-none relative z-[201]"
+        aria-label={isOpen ? "Закрыть меню" : "Меню"}
+        aria-expanded={isOpen}
       >
         <span
           className={`block h-0.5 w-6 bg-[var(--text)] transition-transform duration-300 ${isOpen ? "translate-y-2 rotate-45" : ""}`}
@@ -88,49 +118,69 @@ export function Navbar() {
         />
       </button>
 
-      {/* Mobile menu */}
-      <AnimatePresence>
-        {isOpen && (
-          <motion.div
-            initial={{ height: 0, opacity: 0 }}
-            animate={{ height: "auto", opacity: 1 }}
-            exit={{ height: 0, opacity: 0 }}
-            transition={{ duration: 0.3 }}
-            className="absolute top-full left-0 right-0 overflow-hidden md:hidden border-t border-[var(--line)] bg-[var(--bg)]"
-          >
-            <ul className="flex flex-col gap-4 px-5 py-6 list-none">
-              {navLinks.map((link, i) => (
-                <li key={`${link.href}-m-${i}`}>
-                  <Link
-                    href={link.href}
-                    onClick={() => setIsOpen(false)}
-                    className="block text-base text-[#c9d7e7] no-underline transition-colors hover:text-white"
-                  >
-                    {link.label}
-                  </Link>
-                </li>
-              ))}
-              <li className="flex items-center gap-3 pt-2">
-                <button
-                  onClick={switchLocale}
-                  className="text-xs tracking-wider text-[#c9d7e7] border border-[var(--line-strong)] px-2.5 py-1 rounded bg-transparent hover:text-white hover:border-[var(--blue)] transition-all"
-                >
-                  {locale === "ru" ? "RU / EN" : "EN / RU"}
-                </button>
-              </li>
-              <li>
-                <Link
-                  href="/contact"
-                  onClick={() => setIsOpen(false)}
-                  className="btn btn-primary w-full text-xs"
-                >
-                  {t("ctaButton")}
-                </Link>
-              </li>
-            </ul>
-          </motion.div>
-        )}
-      </AnimatePresence>
+      {/* Mobile full-screen overlay */}
+      {isOpen && (
+        <div
+          className="mobile-menu-overlay md:hidden"
+          role="dialog"
+          aria-modal="true"
+          aria-label="Mobile navigation"
+          style={{ background: "rgba(3, 8, 17, 0.98)" }}
+        >
+          <div className="mobile-menu-header">
+            <Link
+              href="/"
+              onClick={() => setIsOpen(false)}
+              className="inline-flex items-center gap-3 text-[var(--text)] no-underline font-extrabold tracking-[0.02em]"
+            >
+              <span
+                className="grid h-[34px] w-[34px] place-items-center rounded-[9px] border border-[var(--line-strong)] text-white font-bold"
+                style={{
+                  background:
+                    "linear-gradient(135deg, rgba(45,125,255,.32), rgba(4,12,24,.9))",
+                  boxShadow:
+                    "0 0 22px rgba(45,125,255,.18), inset 0 0 18px rgba(86,199,255,.12)",
+                }}
+              >
+                R
+              </span>
+              <span>RADUCAN.PRO</span>
+            </Link>
+            {/* No close button here — burger in header doubles as close (animated → X) */}
+          </div>
+
+          <nav className="mobile-menu-nav" aria-label="Mobile navigation links">
+            {navLinks.map((link, i) => (
+              <Link
+                key={`${link.href}-m-${i}`}
+                href={link.href}
+                onClick={() => setIsOpen(false)}
+              >
+                {link.label}
+              </Link>
+            ))}
+          </nav>
+
+          <div className="mobile-menu-footer">
+            <button
+              onClick={() => {
+                switchLocale();
+                setIsOpen(false);
+              }}
+              className="mobile-menu-lang"
+            >
+              {locale === "ru" ? "RU / EN" : "EN / RU"}
+            </button>
+            <Link
+              href="/contact"
+              onClick={() => setIsOpen(false)}
+              className="btn btn-primary w-full"
+            >
+              {t("ctaButton")} <span>→</span>
+            </Link>
+          </div>
+        </div>
+      )}
     </header>
   );
 }
