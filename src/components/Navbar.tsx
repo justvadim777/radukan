@@ -88,7 +88,15 @@ export function Navbar() {
         overflowY: "auto",
       }}
     >
-      <div className="mobile-menu-header">
+      <div
+        className="mobile-menu-header"
+        style={{
+          display: "flex",
+          justifyContent: "space-between",
+          alignItems: "center",
+          marginBottom: "32px",
+        }}
+      >
         <Link
           href="/"
           onClick={() => setIsOpen(false)}
@@ -107,7 +115,30 @@ export function Navbar() {
           </span>
           <span>RADUCAN.PRO</span>
         </Link>
-        {/* No close button here — burger in header doubles as close (animated → X) */}
+
+        {/* Guaranteed-visible close button inside the overlay — does not
+            rely on the burger button being clickable above the portal. */}
+        <button
+          onClick={() => setIsOpen(false)}
+          aria-label="Закрыть меню"
+          style={{
+            width: "44px",
+            height: "44px",
+            display: "grid",
+            placeItems: "center",
+            background: "transparent",
+            border: "1px solid rgba(91, 166, 255, 0.34)",
+            borderRadius: "8px",
+            color: "#eef6ff",
+            fontSize: "20px",
+            fontWeight: 400,
+            cursor: "pointer",
+            lineHeight: 1,
+            padding: 0,
+          }}
+        >
+          ✕
+        </button>
       </div>
 
       <nav className="mobile-menu-nav" aria-label="Mobile navigation links">
@@ -190,31 +221,30 @@ export function Navbar() {
           </Link>
         </div>
 
-        {/* Mobile burger — fixed-positioned so it stays above the portal overlay
-            even when the overlay is mounted at body level (zIndex: 10000 > 9999).
-            Its X-animation acts as the close button. */}
-        <button
-          onClick={() => setIsOpen(!isOpen)}
-          className="md:hidden flex flex-col gap-1.5 p-2 bg-transparent border-none"
-          style={{
-            position: isOpen ? "fixed" : "relative",
-            top: isOpen ? "29px" : undefined,
-            right: isOpen ? "28px" : undefined,
-            zIndex: isOpen ? 10000 : 201,
-          }}
-          aria-label={isOpen ? "Закрыть меню" : "Меню"}
-          aria-expanded={isOpen}
-        >
-          <span
-            className={`block h-0.5 w-6 bg-[var(--text)] transition-transform duration-300 ${isOpen ? "translate-y-2 rotate-45" : ""}`}
-          />
-          <span
-            className={`block h-0.5 w-6 bg-[var(--text)] transition-opacity duration-300 ${isOpen ? "opacity-0" : ""}`}
-          />
-          <span
-            className={`block h-0.5 w-6 bg-[var(--text)] transition-transform duration-300 ${isOpen ? "-translate-y-2 -rotate-45" : ""}`}
-          />
-        </button>
+        {/* Mobile burger — only visible when menu is closed.
+            When menu is open, the close button lives inside the overlay
+            (single source of truth, no z-index race with the portal). */}
+        {!isOpen && (
+          <button
+            onClick={() => setIsOpen(true)}
+            className="md:hidden flex flex-col gap-1.5 p-2 bg-transparent border-none"
+            aria-label="Меню"
+            aria-expanded={false}
+          >
+            <span
+              className="block h-0.5 w-6 transition-transform duration-300"
+              style={{ backgroundColor: "#eef6ff" }}
+            />
+            <span
+              className="block h-0.5 w-6 transition-opacity duration-300"
+              style={{ backgroundColor: "#eef6ff" }}
+            />
+            <span
+              className="block h-0.5 w-6 transition-transform duration-300"
+              style={{ backgroundColor: "#eef6ff" }}
+            />
+          </button>
+        )}
       </header>
 
       {/* Portal overlay into body — escapes any parent stacking context */}
