@@ -96,6 +96,11 @@ export function Navbar() {
           justifyContent: "space-between",
           alignItems: "center",
           marginBottom: "32px",
+          /* Match the closed-state header offsets: header is
+             min(1280px, 100% - 56px) so its content sits at 28px from
+             screen edges. Overlay padding is 16px, so we add 12px
+             inside the header row → 16 + 12 = 28px. */
+          padding: "0 12px",
         }}
       >
         <Link
