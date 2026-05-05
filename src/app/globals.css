@@ -323,7 +323,8 @@ body::before {
   backdrop-filter: blur(20px);
   display: flex !important;
   flex-direction: column !important;
-  padding: 24px;
+  padding: 24px 16px;
+  padding-bottom: max(24px, env(safe-area-inset-bottom));
   overflow-y: auto;
   animation: fadeIn 200ms ease-out;
 }
