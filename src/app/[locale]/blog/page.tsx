@@ -1,15 +1,17 @@
-import { Metadata } from "next";
 import { AnimatedSection } from "@/components/AnimatedSection";
 import { BlogList } from "@/components/BlogList";
 import { getLocale } from "next-intl/server";
 import { getAllPosts } from "@/lib/blog";
+import { buildPageMetadata } from "@/lib/seo";
 
-export const metadata: Metadata = {
-  title: "Блог Raducan — HoReCa, инвестиции, разработка",
-  description:
-    "Статьи о CRM для HoReCa, инвестициях, разработке и автоматизации бизнеса.",
-  alternates: { canonical: "https://raducan.pro/blog" },
-};
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}) {
+  const { locale } = await params;
+  return buildPageMetadata(locale, "blog", "/blog");
+}
 
 export default async function BlogPage() {
   const locale = await getLocale();

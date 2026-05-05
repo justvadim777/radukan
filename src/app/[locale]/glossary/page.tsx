@@ -1,13 +1,15 @@
-import { Metadata } from "next";
 import { AnimatedSection } from "@/components/AnimatedSection";
 import { getLocale } from "next-intl/server";
+import { buildPageMetadata } from "@/lib/seo";
 
-export const metadata: Metadata = {
-  title: "Глоссарий: CRM, HoReCa, SaaS и другие термины",
-  description:
-    "Глоссарий терминов: CRM, SaaS, HoReCa, MVP, DCA и другие понятия из мира бизнеса и технологий.",
-  alternates: { canonical: "https://raducan.pro/glossary" },
-};
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}) {
+  const { locale } = await params;
+  return buildPageMetadata(locale, "glossary", "/glossary");
+}
 
 const termsRu = [
   {

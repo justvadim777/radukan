@@ -1,14 +1,16 @@
-import { Metadata } from "next";
 import { AnimatedSection } from "@/components/AnimatedSection";
 import { Link } from "@/i18n/navigation";
 import { getLocale } from "next-intl/server";
+import { buildPageMetadata } from "@/lib/seo";
 
-export const metadata: Metadata = {
-  title: "О Вадиме Радукане — разработчик и предприниматель",
-  description:
-    "Вадим Радукан — разработчик и предприниматель. Строю IT-продукты для малого бизнеса.",
-  alternates: { canonical: "https://raducan.pro/about" },
-};
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}) {
+  const { locale } = await params;
+  return buildPageMetadata(locale, "about", "/about");
+}
 
 const experienceRu = [
   {

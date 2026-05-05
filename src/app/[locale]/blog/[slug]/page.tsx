@@ -8,16 +8,22 @@ import { Link } from "@/i18n/navigation";
 export async function generateMetadata({
   params,
 }: {
-  params: Promise<{ slug: string }>;
+  params: Promise<{ slug: string; locale: string }>;
 }): Promise<Metadata> {
-  const { slug } = await params;
+  const { slug, locale } = await params;
   const post = getPostBySlug(slug);
   if (!post) return {};
 
   return {
     title: post.seoTitle,
     description: post.description,
-    alternates: { canonical: `https://raducan.pro/blog/${slug}` },
+    alternates: {
+      canonical: `https://raducan.pro/${locale}/blog/${slug}`,
+      languages: {
+        ru: `https://raducan.pro/ru/blog/${slug}`,
+        en: `https://raducan.pro/en/blog/${slug}`,
+      },
+    },
     openGraph: {
       title: post.seoTitle,
       description: post.description,

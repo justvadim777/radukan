@@ -4,6 +4,16 @@ import { ServicesSection } from "@/components/home/ServicesSection";
 import { ApproachSection } from "@/components/home/ApproachSection";
 import { CaseStudySection } from "@/components/home/CaseStudySection";
 import { CtaSection } from "@/components/home/CtaSection";
+import { buildPageMetadata } from "@/lib/seo";
+
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}) {
+  const { locale } = await params;
+  return buildPageMetadata(locale, "home", "");
+}
 
 export default function Home() {
   return (

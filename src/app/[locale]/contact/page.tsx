@@ -1,13 +1,15 @@
-import { Metadata } from "next";
 import { AnimatedSection } from "@/components/AnimatedSection";
 import { getLocale } from "next-intl/server";
+import { buildPageMetadata } from "@/lib/seo";
 
-export const metadata: Metadata = {
-  title: "Связаться с Вадимом Радуканом",
-  description:
-    "Напишите в Telegram или оставьте заявку. Обсудим задачу и предложу решение.",
-  alternates: { canonical: "https://raducan.pro/contact" },
-};
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}) {
+  const { locale } = await params;
+  return buildPageMetadata(locale, "contact", "/contact");
+}
 
 const tasksRu = [
   "Разработка под ключ",

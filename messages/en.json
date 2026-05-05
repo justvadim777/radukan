@@ -1,4 +1,50 @@
 {
+  "metadata": {
+    "home": {
+      "title": "Raducan — CRM, SaaS and automation for small business",
+      "description": "I help small businesses operate like a big system. Custom CRM, SaaS products and automation — from MVP to scale."
+    },
+    "about": {
+      "title": "About Vadim Radukan — developer and entrepreneur",
+      "description": "Vadim Radukan — developer and entrepreneur. Building IT products for small business. Manages Ostrov Lounge."
+    },
+    "projects": {
+      "title": "Raducan products — CRM, investments, development",
+      "description": "Product ecosystem: Raducan Hookah (CRM for hookah lounges), Raducan Capital (investment dashboard), Raducan Tech (turnkey development)."
+    },
+    "hookah": {
+      "title": "Raducan Hookah — CRM for hookah lounges and HoReCa",
+      "description": "Cloud CRM for hookah lounges. Guest tracking, reservations, loyalty program and analytics in one place."
+    },
+    "capital": {
+      "title": "Raducan Capital — investment dashboard",
+      "description": "Tinkoff, BCS, Bybit — a unified dashboard for stocks, bonds and crypto. Analytics, goals, transaction history."
+    },
+    "tech": {
+      "title": "Raducan Tech — websites, bots and SaaS development",
+      "description": "Websites, Telegram bots, SaaS products and business process automation. From MVP to scale."
+    },
+    "contact": {
+      "title": "Contact Vadim Radukan",
+      "description": "Message me on Telegram or fill the form. I will reply within a few hours and propose a solution."
+    },
+    "blog": {
+      "title": "Raducan blog — HoReCa, investments, development",
+      "description": "Articles on CRM for HoReCa, investments, development and business automation. Real experience, no fluff."
+    },
+    "tools": {
+      "title": "Tools — calculators for business and investments",
+      "description": "Free calculators: hookah lounge ROI, DCA investments, CRM choice checklist. Right in your browser, no signup."
+    },
+    "glossary": {
+      "title": "Glossary — HoReCa, SaaS and investment terms",
+      "description": "Plain English: CRM, SaaS, HoReCa, MVP, DCA and other concepts from business and tech."
+    },
+    "reviews": {
+      "title": "Raducan client reviews",
+      "description": "Real reviews from business owners, investors and freelance development clients. Filter by category."
+    }
+  },
   "nav": {
     "products": "Products",
     "services": "Services",

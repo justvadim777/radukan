@@ -1,15 +1,17 @@
-import { Metadata } from "next";
 import { AnimatedSection } from "@/components/AnimatedSection";
 import { SectionHeading } from "@/components/SectionHeading";
 import { Button } from "@/components/Button";
 import { getLocale } from "next-intl/server";
+import { buildPageMetadata } from "@/lib/seo";
 
-export const metadata: Metadata = {
-  title: "Raducan Tech — разработка сайтов, ботов и SaaS",
-  description:
-    "Сайты, Telegram-боты, SaaS-продукты и автоматизация бизнес-процессов под ключ.",
-  alternates: { canonical: "https://raducan.pro/projects/tech" },
-};
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}) {
+  const { locale } = await params;
+  return buildPageMetadata(locale, "tech", "/projects/tech");
+}
 
 const servicesRu = [
   { icon: "🌐", title: "Сайт / Лендинг", text: "Презентационный сайт, лендинг, корпоративный портал. Быстро, красиво, с SEO." },

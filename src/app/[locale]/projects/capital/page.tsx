@@ -1,14 +1,16 @@
-import { Metadata } from "next";
 import { AnimatedSection } from "@/components/AnimatedSection";
 import { Link } from "@/i18n/navigation";
 import { getLocale } from "next-intl/server";
+import { buildPageMetadata } from "@/lib/seo";
 
-export const metadata: Metadata = {
-  title: "Raducan Capital — инвестиционный дашборд",
-  description:
-    "Тинькофф, БКС, Bybit — единый дашборд для акций, облигаций и криптовалюты.",
-  alternates: { canonical: "https://raducan.pro/projects/capital" },
-};
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}) {
+  const { locale } = await params;
+  return buildPageMetadata(locale, "capital", "/projects/capital");
+}
 
 const featuresRu = [
   { icon: "📊", title: "Мультипортфельный дашборд", text: "Одновременное отслеживание нескольких портфелей у разных брокеров." },

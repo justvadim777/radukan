@@ -1,14 +1,16 @@
-import { Metadata } from "next";
 import { AnimatedSection } from "@/components/AnimatedSection";
 import { Link } from "@/i18n/navigation";
 import { getLocale } from "next-intl/server";
+import { buildPageMetadata } from "@/lib/seo";
 
-export const metadata: Metadata = {
-  title: "Raducan Hookah — CRM для кальянных и HoReCa",
-  description:
-    "Облачная CRM для кальянных. Учёт гостей, бронирования, программа лояльности и аналитика — всё в одном месте.",
-  alternates: { canonical: "https://raducan.pro/projects/hookah" },
-};
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}) {
+  const { locale } = await params;
+  return buildPageMetadata(locale, "hookah", "/projects/hookah");
+}
 
 const featureIcons = [
   (

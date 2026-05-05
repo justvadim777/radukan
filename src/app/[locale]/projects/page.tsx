@@ -1,14 +1,16 @@
-import { Metadata } from "next";
+import { buildPageMetadata } from "@/lib/seo";
 import { AnimatedSection } from "@/components/AnimatedSection";
 import { Link } from "@/i18n/navigation";
 import { getLocale } from "next-intl/server";
 
-export const metadata: Metadata = {
-  title: "Продукты Raducan — CRM, инвестиции, разработка",
-  description:
-    "Экосистема продуктов Raducan: CRM для кальянных, инвестиционный дашборд, разработка под ключ.",
-  alternates: { canonical: "https://raducan.pro/projects" },
-};
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}) {
+  const { locale } = await params;
+  return buildPageMetadata(locale, "projects", "/projects");
+}
 
 const projectsRu = [
   {
