@@ -12,17 +12,21 @@ export async function generateMetadata({
 }
 
 const tasksRu = [
-  "Разработка под ключ",
-  "Демо Raducan Hookah",
-  "Демо Raducan Capital",
-  "Партнёрство",
+  "Разработка сайта",
+  "Внедрение CRM",
+  "Программа лояльности",
+  "Автоматизация процессов",
+  "Telegram-бот или Mini-App",
+  "Другое / нужна консультация",
 ];
 
 const tasksEn = [
-  "Turnkey development",
-  "Raducan Hookah demo",
-  "Raducan Capital demo",
-  "Partnership",
+  "Website development",
+  "CRM implementation",
+  "Loyalty program",
+  "Process automation",
+  "Telegram bot or Mini-App",
+  "Other / need consultation",
 ];
 
 const contentRu = {

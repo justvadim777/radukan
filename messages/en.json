@@ -8,22 +8,6 @@
       "title": "About Vadim Radukan — developer and entrepreneur",
       "description": "Vadim Radukan — developer and entrepreneur. Building IT products for small business. Manages Ostrov Lounge."
     },
-    "projects": {
-      "title": "Raducan products — CRM, investments, development",
-      "description": "Product ecosystem: Raducan Hookah (CRM for hookah lounges), Raducan Capital (investment dashboard), Raducan Tech (turnkey development)."
-    },
-    "hookah": {
-      "title": "Raducan Hookah — CRM for hookah lounges and HoReCa",
-      "description": "Cloud CRM for hookah lounges. Guest tracking, reservations, loyalty program and analytics in one place."
-    },
-    "capital": {
-      "title": "Raducan Capital — investment dashboard",
-      "description": "Tinkoff, BCS, Bybit — a unified dashboard for stocks, bonds and crypto. Analytics, goals, transaction history."
-    },
-    "tech": {
-      "title": "Raducan Tech — websites, bots and SaaS development",
-      "description": "Websites, Telegram bots, SaaS products and business process automation. From MVP to scale."
-    },
     "contact": {
       "title": "Contact Vadim Radukan",
       "description": "Message me on Telegram or fill the form. I will reply within a few hours and propose a solution."
@@ -39,15 +23,9 @@
     "glossary": {
       "title": "Glossary — HoReCa, SaaS and investment terms",
       "description": "Plain English: CRM, SaaS, HoReCa, MVP, DCA and other concepts from business and tech."
-    },
-    "reviews": {
-      "title": "Raducan client reviews",
-      "description": "Real reviews from business owners, investors and freelance development clients. Filter by category."
     }
   },
   "nav": {
-    "products": "Products",
-    "services": "Services",
     "about": "About",
     "blog": "Blog",
     "contact": "Contact",
@@ -61,8 +39,8 @@
     "h1Line2": "Connected results.",
     "subhead": "CRM, SaaS and automation for small business",
     "text": "I help small businesses operate like a big system. Custom CRM, SaaS products and automation — from MVP to scale.",
-    "ctaPrimary": "View products",
-    "ctaOutline": "Discuss a project"
+    "ctaPrimary": "Discuss a project",
+    "ctaOutline": "Read blog"
   },
   "blueprint": {
     "automation": "AUTOMATION",
@@ -83,9 +61,9 @@
     "heading": "Digital systems that drive business forward",
     "learnMore": "Learn more",
     "crmTitle": "CRM Systems",
-    "crmDescription": "Custom CRM tailored to your sales process. Track leads, close deals, grow revenue. Example — Raducan Hookah for HoReCa.",
+    "crmDescription": "Custom CRM tailored to your sales process. Track leads, close deals, grow revenue — built around your business specifics.",
     "saasTitle": "SaaS Platforms",
-    "saasDescription": "Scalable SaaS on a modern stack. From MVP to full-scale platform. Example — Raducan Capital.",
+    "saasDescription": "Scalable SaaS on a modern stack. From MVP to a full-featured platform with exactly what you need.",
     "automationTitle": "Automation & Integrations",
     "automationDescription": "Web apps, Telegram bots and automation built for unique business needs. Any stack, any scale."
   },
@@ -98,18 +76,6 @@
     "testingText": "I make sure everything works correctly before launch.",
     "launchText": "Deploy, monitoring and ongoing support after release."
   },
-  "caseStudy": {
-    "eyebrow": "LATEST CASE",
-    "heading": "CRM for Ostrov Lounge hookah bar",
-    "description": "Raducan Hookah implementation: guest tracking, reservations, loyalty program and analytics in one place.",
-    "metric1Value": "+27%",
-    "metric1Label": "average check",
-    "metric2Value": "−40%",
-    "metric2Label": "time on reporting",
-    "metric3Value": "+12",
-    "metric3Label": "repeat guests/month",
-    "link": "View case"
-  },
   "cta": {
     "heading": "Got a project in mind?",
     "text": "Get in touch — let's talk about building something solid.",
@@ -117,11 +83,9 @@
   },
   "footer": {
     "tagline": "Building systems that help businesses grow.",
-    "products": "Products",
     "services": "Services",
     "company": "Company",
     "contact": "Contact",
-    "allProducts": "All products",
     "crmDev": "CRM Development",
     "saasDev": "SaaS Development",
     "customDev": "Custom Development",

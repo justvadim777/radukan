@@ -33,10 +33,10 @@ export async function HeroSection() {
         </p>
 
         <div className="mt-9 flex flex-wrap gap-[18px] hero-reveal-d4">
-          <Link href="/projects" className="btn btn-primary">
+          <Link href="/contact" className="btn btn-primary">
             {t("ctaPrimary")} <span>→</span>
           </Link>
-          <Link href="/contact" className="btn btn-outline">
+          <Link href="/blog" className="btn btn-outline">
             {t("ctaOutline")}
           </Link>
         </div>

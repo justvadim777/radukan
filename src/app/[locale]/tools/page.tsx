@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { AnimatedSection } from "@/components/AnimatedSection";
 import { useLocale } from "next-intl";
+import { Link } from "@/i18n/navigation";
 
 const contentRu = {
   heading: "Инструменты",
@@ -31,7 +32,8 @@ const contentRu = {
     title: "Чек-лист выбора CRM",
     description: "Отметьте функции, которые вам нужны.",
     selectedLabel: "Выбрано:",
-    coverageMessage: "Raducan Hookah покрывает все выбранные функции!",
+    coverageMessage: "Готов помочь с подбором и внедрением CRM под ваши задачи",
+    contactLabel: "Обсудить задачу",
     items: [
       "Ведение базы клиентов",
       "Сегментация аудитории",
@@ -74,7 +76,8 @@ const contentEn = {
     title: "CRM selection checklist",
     description: "Check the features you need.",
     selectedLabel: "Selected:",
-    coverageMessage: "Raducan Hookah covers all selected features!",
+    coverageMessage: "I can help you choose and implement a CRM tailored to your needs",
+    contactLabel: "Discuss a project",
     items: [
       "Client database management",
       "Audience segmentation",
@@ -263,7 +266,15 @@ function CRMChecklist({ t }: { t: typeof contentRu.crm }) {
           </span>
         </p>
         {count >= 5 && (
-          <p className="mt-2 text-sm text-gold">{t.coverageMessage}</p>
+          <div className="mt-2">
+            <p className="text-sm text-muted">{t.coverageMessage}</p>
+            <Link
+              href="/contact"
+              className="mt-3 inline-block border border-gold px-4 py-2 text-sm text-gold transition-colors hover:bg-gold hover:text-bg"
+            >
+              {t.contactLabel}
+            </Link>
+          </div>
         )}
       </div>
     </div>

@@ -2,7 +2,6 @@ import { HeroSection } from "@/components/home/HeroSection";
 import { StatsSection } from "@/components/home/StatsSection";
 import { ServicesSection } from "@/components/home/ServicesSection";
 import { ApproachSection } from "@/components/home/ApproachSection";
-import { CaseStudySection } from "@/components/home/CaseStudySection";
 import { CtaSection } from "@/components/home/CtaSection";
 import { buildPageMetadata } from "@/lib/seo";
 
@@ -22,7 +21,6 @@ export default function Home() {
       <StatsSection />
       <ServicesSection />
       <ApproachSection />
-      <CaseStudySection />
       <CtaSection />
     </>
   );

@@ -7,7 +7,7 @@ export function Footer() {
   const t = useTranslations("footer");
 
   return (
-    <footer className="relative z-10 mx-auto grid w-[min(1280px,calc(100%-56px))] gap-10 pb-12 pt-12 text-[var(--muted)] md:grid-cols-[1.7fr_repeat(4,1fr)]">
+    <footer className="relative z-10 mx-auto grid w-[min(1280px,calc(100%-56px))] gap-10 pb-12 pt-12 text-[var(--muted)] md:grid-cols-[1.7fr_repeat(3,1fr)]">
       {/* Brand */}
       <div>
         <Link
@@ -32,50 +32,25 @@ export function Footer() {
         </p>
       </div>
 
-      {/* Products */}
-      <div>
-        <h4 className="mb-[18px] text-[13px] font-medium uppercase tracking-[0.08em] text-white">
-          {t("products")}
-        </h4>
-        <Link
-          href="/projects/hookah"
-          className="mb-[11px] block text-[#c9d7e7] no-underline text-sm transition-colors hover:text-white"
-        >
-          Raducan Hookah
-        </Link>
-        <Link
-          href="/projects/capital"
-          className="mb-[11px] block text-[#c9d7e7] no-underline text-sm transition-colors hover:text-white"
-        >
-          Raducan Capital
-        </Link>
-        <Link
-          href="/projects"
-          className="mb-[11px] block text-[#c9d7e7] no-underline text-sm transition-colors hover:text-white"
-        >
-          {t("allProducts")}
-        </Link>
-      </div>
-
       {/* Services */}
       <div>
         <h4 className="mb-[18px] text-[13px] font-medium uppercase tracking-[0.08em] text-white">
           {t("services")}
         </h4>
         <Link
-          href="/projects/tech"
+          href="/contact"
           className="mb-[11px] block text-[#c9d7e7] no-underline text-sm transition-colors hover:text-white"
         >
           {t("crmDev")}
         </Link>
         <Link
-          href="/projects/tech"
+          href="/contact"
           className="mb-[11px] block text-[#c9d7e7] no-underline text-sm transition-colors hover:text-white"
         >
           {t("saasDev")}
         </Link>
         <Link
-          href="/projects/tech"
+          href="/contact"
           className="mb-[11px] block text-[#c9d7e7] no-underline text-sm transition-colors hover:text-white"
         >
           {t("customDev")}

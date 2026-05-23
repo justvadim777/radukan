@@ -60,19 +60,19 @@ export function ServicesSection() {
 
   const services = [
     {
-      href: "/projects/hookah" as const,
+      href: "/contact" as const,
       title: t("crmTitle"),
       description: t("crmDescription"),
       icon: crmIcon,
     },
     {
-      href: "/projects/capital" as const,
+      href: "/contact" as const,
       title: t("saasTitle"),
       description: t("saasDescription"),
       icon: saasIcon,
     },
     {
-      href: "/projects/tech" as const,
+      href: "/contact" as const,
       title: t("automationTitle"),
       description: t("automationDescription"),
       icon: automationIcon,

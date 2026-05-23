@@ -10,7 +10,7 @@ type Locale = (typeof LOCALES)[number];
  *
  * @param locale - current locale
  * @param pageKey - key under "metadata" namespace in messages/*.json
- * @param path - URL path WITHOUT locale prefix (e.g. "/about", "/projects/hookah", "" for home)
+ * @param path - URL path WITHOUT locale prefix (e.g. "/about", "/blog", "" for home)
  */
 export async function buildPageMetadata(
   locale: string,
