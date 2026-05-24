@@ -74,12 +74,6 @@ export function Footer() {
         >
           {t("blog")}
         </Link>
-        <Link
-          href="/tools"
-          className="mb-[11px] block text-[#c9d7e7] no-underline text-sm transition-colors hover:text-white"
-        >
-          {t("tools")}
-        </Link>
       </div>
 
       {/* Contact */}

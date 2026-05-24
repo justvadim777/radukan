@@ -16,10 +16,6 @@
       "title": "Raducan blog — HoReCa, investments, development",
       "description": "Articles on CRM for HoReCa, investments, development and business automation. Real experience, no fluff."
     },
-    "tools": {
-      "title": "Tools — calculators for business and investments",
-      "description": "Free calculators: hookah lounge ROI, DCA investments, CRM choice checklist. Right in your browser, no signup."
-    },
     "glossary": {
       "title": "Glossary — HoReCa, SaaS and investment terms",
       "description": "Plain English: CRM, SaaS, HoReCa, MVP, DCA and other concepts from business and tech."
@@ -30,8 +26,7 @@
     "blog": "Blog",
     "contact": "Contact",
     "ctaButton": "Discuss a project",
-    "home": "Home",
-    "tools": "Tools"
+    "home": "Home"
   },
   "hero": {
     "eyebrow": "BUILDING SYSTEMS FOR BUSINESS",
@@ -96,7 +91,6 @@
     "customDev": "Custom Development",
     "about": "About",
     "blog": "Blog",
-    "tools": "Tools",
     "rights": "All rights reserved",
     "slogan": "Building systems for business"
   }
