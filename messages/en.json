@@ -70,6 +70,11 @@
   "approach": {
     "eyebrow": "HOW I WORK",
     "heading": "A systematic approach to every project",
+    "step1Label": "DISCOVERY",
+    "step2Label": "STRATEGY",
+    "step3Label": "DEVELOPMENT",
+    "step4Label": "TESTING",
+    "step5Label": "LAUNCH",
     "discoveryText": "I analyze the business problem and pick the optimal solution.",
     "strategyText": "I design the architecture and lay out a clear roadmap.",
     "developmentText": "I write clean, scalable code following best practices.",

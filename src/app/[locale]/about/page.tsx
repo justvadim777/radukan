@@ -15,7 +15,7 @@ export async function generateMetadata({
 const experienceRu = [
   {
     num: "01",
-    title: "Raducan",
+    title: "РАДУКАН",
     text: "Основатель экосистемы IT-продуктов: Hookah CRM, Capital, Tech. Разрабатываю и управляю.",
   },
   {
@@ -31,7 +31,7 @@ const experienceRu = [
   {
     num: "04",
     title: "Фриланс",
-    text: "Сайты, Telegram-боты, SaaS-продукты для малого бизнеса на Профи.ру и по рекомендациям.",
+    text: "Сайты, Telegram-боты, облачные сервисы для малого бизнеса на Профи.ру и по рекомендациям.",
   },
 ];
 
@@ -59,7 +59,7 @@ const experienceEn = [
 ];
 
 const contentRu = {
-  tagline: "Raducan · Основатель",
+  tagline: "РАДУКАН · Основатель",
   firstName: "Вадим",
   lastName: "Радукан",
   subtitle: "Разработчик и предприниматель. Строю IT-продукты для малого бизнеса.",

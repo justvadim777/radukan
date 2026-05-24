@@ -116,9 +116,9 @@ export function Navbar() {
                 "0 0 22px rgba(45,125,255,.18), inset 0 0 18px rgba(86,199,255,.12)",
             }}
           >
-            R
+            Р
           </span>
-          <span>RADUCAN.PRO</span>
+          <span>РАДУКАН.ПРО</span>
         </Link>
 
         {/* Guaranteed-visible close button inside the overlay — does not
@@ -196,9 +196,9 @@ export function Navbar() {
                 "0 0 22px rgba(45,125,255,.18), inset 0 0 18px rgba(86,199,255,.12)",
             }}
           >
-            R
+            Р
           </span>
-          <span>RADUCAN.PRO</span>
+          <span>РАДУКАН.ПРО</span>
         </Link>
 
         {/* Desktop nav */}

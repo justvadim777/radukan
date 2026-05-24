@@ -23,9 +23,9 @@ export function Footer() {
                 "0 0 22px rgba(45,125,255,.18), inset 0 0 18px rgba(86,199,255,.12)",
             }}
           >
-            R
+            Р
           </span>
-          <span>RADUCAN.PRO</span>
+          <span>РАДУКАН.ПРО</span>
         </Link>
         <p className="mt-4 max-w-[210px] text-[var(--muted)] leading-[1.6] text-sm">
           {t("tagline")}

@@ -1,7 +1,7 @@
 import { ImageResponse } from "next/og";
 
 export const runtime = "edge";
-export const alt = "RADUCAN — Intelligent systems. Connected results.";
+export const alt = "РАДУКАН — Умные системы. Связанный результат.";
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 
@@ -31,7 +31,7 @@ export default async function Image() {
             lineHeight: 1,
           }}
         >
-          Intelligent systems.
+          Умные системы.
         </div>
         <div
           style={{
@@ -43,7 +43,7 @@ export default async function Image() {
             lineHeight: 1,
           }}
         >
-          Connected results.
+          Связанный результат.
         </div>
         <div
           style={{
@@ -52,7 +52,7 @@ export default async function Image() {
             letterSpacing: "1px",
           }}
         >
-          CRM · SaaS · Automation
+          Учёт клиентов · Автоматизация · Интеграции
         </div>
         <div
           style={{
@@ -64,7 +64,7 @@ export default async function Image() {
             fontWeight: 700,
           }}
         >
-          RADUCAN.PRO
+          РАДУКАН.ПРО
         </div>
       </div>
     ),

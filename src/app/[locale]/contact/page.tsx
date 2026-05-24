@@ -13,7 +13,7 @@ export async function generateMetadata({
 
 const tasksRu = [
   "Разработка сайта",
-  "Внедрение CRM",
+  "Внедрение системы учёта клиентов",
   "Программа лояльности",
   "Автоматизация процессов",
   "Telegram-бот или Mini-App",
@@ -30,7 +30,7 @@ const tasksEn = [
 ];
 
 const contentRu = {
-  tagline: "Raducan · Контакт",
+  tagline: "РАДУКАН · Контакт",
   headingLine1: "Обсудим",
   headingAccent: "задачу",
   subtitle: "Напишите в Telegram — отвечаю быстро. Или заполните форму.",

@@ -10,11 +10,11 @@ const inter = Inter({
 
 export const metadata: Metadata = {
   title: {
-    default: "Raducan — Intelligent systems. Connected results.",
-    template: "%s | Raducan",
+    default: "РАДУКАН — Умные системы. Связанный результат.",
+    template: "%s | РАДУКАН",
   },
   description:
-    "CRM, SaaS и автоматизация для малого бизнеса. Создаю продукты для HoReCa, инвестиций и автоматизации — от MVP до масштабирования.",
+    "Учёт клиентов, онлайн-сервисы и автоматизация для малого бизнеса. Создаю продукты для общепита, инвестиций и автоматизации — от первой версии до масштабирования.",
   metadataBase: new URL("https://raducan.pro"),
   openGraph: {
     type: "website",

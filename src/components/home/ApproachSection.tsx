@@ -90,11 +90,11 @@ const stepIcons = [
 ];
 
 const stepKeys = [
-  { num: "01", title: "DISCOVERY", textKey: "discoveryText" },
-  { num: "02", title: "STRATEGY", textKey: "strategyText" },
-  { num: "03", title: "DEVELOPMENT", textKey: "developmentText" },
-  { num: "04", title: "TESTING", textKey: "testingText" },
-  { num: "05", title: "LAUNCH", textKey: "launchText" },
+  { num: "01", titleKey: "step1Label", textKey: "discoveryText" },
+  { num: "02", titleKey: "step2Label", textKey: "strategyText" },
+  { num: "03", titleKey: "step3Label", textKey: "developmentText" },
+  { num: "04", titleKey: "step4Label", textKey: "testingText" },
+  { num: "05", titleKey: "step5Label", textKey: "launchText" },
 ] as const;
 
 export function ApproachSection() {
@@ -128,7 +128,7 @@ export function ApproachSection() {
               {stepIcons[i]}
             </div>
             <h3 className="text-sm uppercase tracking-[0.04em] text-[#9bcaff] font-semibold">
-              {step.title}
+              {t(step.titleKey)}
             </h3>
             <p className="mt-1 text-sm leading-[1.58] text-[#9badc2]">
               {t(step.textKey)}
