@@ -19,6 +19,10 @@
     "glossary": {
       "title": "Glossary — HoReCa, SaaS and investment terms",
       "description": "Plain English: CRM, SaaS, HoReCa, MVP, DCA and other concepts from business and tech."
+    },
+    "partnerstvo": {
+      "title": "Partnership by results — RADUCAN",
+      "description": "An alternative to fixed-price projects. I build the website and bring you the sales. Pay from results, no upfront cost, no fixed fee."
     }
   },
   "nav": {
@@ -26,7 +30,8 @@
     "blog": "Blog",
     "contact": "Contact",
     "ctaButton": "Discuss a project",
-    "home": "Home"
+    "home": "Home",
+    "partnerstvo": "Partnership"
   },
   "hero": {
     "eyebrow": "BUILDING SYSTEMS FOR BUSINESS",
@@ -89,9 +94,128 @@
     "crmDev": "CRM Development",
     "saasDev": "SaaS Development",
     "customDev": "Custom Development",
+    "partnerstvoDev": "Partnership by results",
     "about": "About",
     "blog": "Blog",
     "rights": "All rights reserved",
     "slogan": "Building systems for business"
+  },
+  "partnerstvo": {
+    "hero": {
+      "eyebrow": "RADUCAN · COLLABORATION MODEL",
+      "title": "Partnership by",
+      "titleAccent": "results.",
+      "sub": "I build the tools to grow your sales.",
+      "lead": "An alternative to fixed-price projects. Website, promotion, lead system — at my own cost. You pay only from what actually drives revenue.",
+      "ctaPrimary": "Discuss your project",
+      "ctaSecondary": "How it works",
+      "counter1": { "num": "$0", "label": "to start the work" },
+      "counter2": { "num": "2 mo", "label": "to launch the site" },
+      "counter3": { "num": "100%", "label": "transparent analytics" }
+    },
+    "audience": {
+      "eyebrow": "WHO IT'S FOR",
+      "title": "This works for you if…",
+      "item1": "You already have a product and real sales — through social media, marketplaces, or word of mouth",
+      "item2": "You don't have a proper website, or you do — but it doesn't bring buyers",
+      "item3": "You're not ready to bet hundreds of thousands on marketing experiments, but you want to grow",
+      "item4": "You value partnership — when the contractor is invested in your outcome, not the invoice",
+      "item5": "You're ready for the long game: this model compounds over time, not a quick burn-through",
+      "item6": "You want to understand every lead and every dollar of revenue — not get 'reports filled with fluff'"
+    },
+    "how": {
+      "eyebrow": "HOW IT WORKS",
+      "title": "Four stages of collaboration",
+      "lead": "From the first conversation to consistent sales through the website.",
+      "step1": {
+        "title": "Discovery",
+        "text": "30-minute call. We look at your product, current sales, and goals. We decide whether this model fits."
+      },
+      "step2": {
+        "title": "Launch",
+        "text": "I build the website and lead-capture system at my own cost. Structure, copy, presentation. Up to two months."
+      },
+      "step3": {
+        "title": "Ongoing work",
+        "text": "Search rankings, traffic channel experiments, technical maintenance. Continuous, compounding effort."
+      },
+      "step4": {
+        "title": "Settlement",
+        "text": "Monthly lead reconciliation and a results report. I invoice only against sales that came through the website."
+      }
+    },
+    "services": {
+      "eyebrow": "WHAT I DO",
+      "title": "Full cycle — from website to analytics",
+      "site": {
+        "title": "Sales-focused website",
+        "text": "Structure, copy, product presentation and CTAs — all built for conversion. Leads land in your inbox instantly."
+      },
+      "seo": {
+        "title": "Search promotion",
+        "text": "Rankings in Google and Yandex, content, algorithm-aware optimisation. Long-term compounding."
+      },
+      "traffic": {
+        "title": "Traffic experiments",
+        "text": "Constant testing of channels — bloggers, niche communities, aggregators. What works gets scaled."
+      },
+      "analytics": {
+        "title": "Transparent analytics",
+        "text": "Every lead, every source — accessible anytime. Export the data or verify it with an independent specialist."
+      }
+    },
+    "protect": {
+      "eyebrow": "TRANSPARENCY",
+      "title": "Both sides protected",
+      "lead": "This model works long-term, so it matters that neither side feels exposed.",
+      "client": {
+        "title": "What protects you",
+        "item1": "All lead data is accessible to you at any time",
+        "item2": "On termination you receive the content, the domain, and a full lead export",
+        "item3": "You can bring in an independent technical specialist for verification",
+        "item4": "End the collaboration with 30 days' notice — no penalties",
+        "item5": "All terms are fixed in a formal contract"
+      },
+      "us": {
+        "title": "What protects me",
+        "item1": "The website and technical infrastructure stay on my side",
+        "item2": "Leads are captured automatically — sales can't be 'lost'",
+        "item3": "If payments are overdue, I can suspend the service",
+        "item4": "Contract is issued through a registered sole proprietor — fully legal and transparent"
+      }
+    },
+    "faq": {
+      "eyebrow": "QUESTIONS",
+      "title": "Frequently asked",
+      "q1": {
+        "question": "How much exactly will I pay?",
+        "answer": "The settlement is defined individually at the discovery stage and depends on your niche, average ticket, and scope. Core principle: no sales through the website — no invoice. All terms are fixed in the contract before work starts."
+      },
+      "q2": {
+        "question": "What if I already have a website?",
+        "answer": "Even better. Reworking an existing site for sales is often faster than starting from scratch. We'll assess what's there and decide — rebuild or evolve."
+      },
+      "q3": {
+        "question": "What if there are no sales through the website in a given month?",
+        "answer": "I don't invoice. That's the whole point — I earn when you earn. This pushes me to constantly test channels and improve the site, not just 'work off a deposit'."
+      },
+      "q4": {
+        "question": "What if I want to end the collaboration?",
+        "answer": "Written notice 30 days in advance. You receive all your materials — content, domain, lead exports. No penalties, no friction."
+      },
+      "q5": {
+        "question": "How do I know a lead actually came through the website?",
+        "answer": "All leads are captured automatically with a unique number, date, and time. Each month I send the full registry and a results report — you see the complete picture."
+      },
+      "q6": {
+        "question": "How long until I see results?",
+        "answer": "Website launch — up to two months. First leads usually arrive 1–3 months after launch. Search promotion compounds — results at 6 months are visibly stronger than at month one."
+      }
+    },
+    "contact": {
+      "title": "Does this format fit your business?",
+      "lead": "15 minutes of conversation — and we'll know if this format makes sense for you.",
+      "cta": "Get in touch"
+    }
   }
 }

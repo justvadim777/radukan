@@ -13,6 +13,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "/contact",
     "/blog",
     "/glossary",
+    "/partnerstvo",
   ];
 
   const staticPages: MetadataRoute.Sitemap = staticRoutes.flatMap((route) =>

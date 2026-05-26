@@ -50,10 +50,10 @@ export function Footer() {
           {t("saasDev")}
         </Link>
         <Link
-          href="/contact"
+          href="/partnerstvo"
           className="mb-[11px] block text-[#c9d7e7] no-underline text-sm transition-colors hover:text-white"
         >
-          {t("customDev")}
+          {t("partnerstvoDev")}
         </Link>
       </div>
 
