@@ -183,56 +183,68 @@ export default async function PartnerstvoPage() {
   return (
     <>
       {/* Hero */}
-      <section className="pt-[140px] pb-[80px] relative overflow-hidden max-md:pt-[100px] max-md:pb-[60px]">
-        <div
-          className="absolute -top-[100px] right-0 w-[600px] h-[600px] pointer-events-none"
-          style={{
-            background:
-              "radial-gradient(circle, rgba(45,125,255,0.07) 0%, transparent 70%)",
-          }}
-        />
-        <p className="eyebrow">{t("hero.eyebrow")}</p>
-        <h1
-          className="font-bold leading-[1.08] tracking-[-0.04em] mb-5 max-w-[760px]"
-          style={{ fontSize: "clamp(36px, 5vw, 72px)" }}
-        >
-          {t("hero.title")}
-          <br />
-          <span
-            className="text-[#56c7ff]"
-            style={{ textShadow: "0 0 28px rgba(45,125,255,.38)" }}
-          >
-            {t("hero.titleAccent")}
-          </span>
-        </h1>
-        <p className="text-[18px] font-semibold text-[#66a8ff] tracking-wide mb-3 max-w-[560px]">
-          {t("hero.sub")}
-        </p>
-        <p className="text-[16px] text-[#8fa6bf] leading-[1.75] mb-10 max-w-[540px]">
-          {t("hero.lead")}
-        </p>
-        <div className="flex flex-wrap gap-4 mb-14 max-md:mb-10">
-          <Link href="/contact" className="btn btn-primary">
-            {t("hero.ctaPrimary")} <span>→</span>
-          </Link>
-          <a href="#how" className="btn btn-outline">
-            {t("hero.ctaSecondary")}
-          </a>
-        </div>
-        <div className="grid grid-cols-3 gap-8 max-w-[440px] max-md:grid-cols-1 max-md:gap-5">
-          {counters.map((c, i) => (
-            <div key={i}>
-              <div
-                className="text-[34px] font-extrabold text-white leading-[1]"
-                style={{ textShadow: "0 0 20px rgba(45,125,255,.3)" }}
-              >
-                {c.num}
+      <section className="pt-20 pb-24 lg:pt-32 lg:pb-32">
+        <div className="mx-auto max-w-[1280px] px-6 lg:px-16">
+          <div className="grid grid-cols-1 lg:grid-cols-[1fr_480px] gap-12 lg:gap-16 items-center">
+            {/* Left column — text */}
+            <div>
+              <div className="text-[12px] font-semibold tracking-[0.18em] uppercase text-[#4F8EFF]">
+                {t("hero.eyebrow")}
               </div>
-              <div className="text-[12px] text-[#8fa6bf] mt-1.5 leading-[1.4]">
-                {c.label}
+              <h1 className="mt-5 text-[44px] lg:text-[68px] font-bold leading-[1.05] tracking-[-0.025em]">
+                {t("hero.title")}
+                <br />
+                <span className="text-[#5B9CFF]">{t("hero.titleAccent")}</span>
+              </h1>
+              <p className="mt-6 text-[18px] lg:text-[20px] font-semibold text-[#5B9CFF] max-w-[520px]">
+                {t("hero.sub")}
+              </p>
+              <p className="mt-6 text-[16px] lg:text-[17px] text-[#A8B5CC] max-w-[560px] leading-[1.7]">
+                {t("hero.lead")}
+              </p>
+              <div className="mt-10 flex flex-wrap gap-3">
+                <Link
+                  href="/contact"
+                  className="inline-flex items-center gap-2 bg-[#3B82F6] text-white px-[22px] py-[11px] rounded-[8px] font-semibold text-[14px] shadow-[0_0_0_1px_rgba(91,156,255,0.3),0_4px_16px_rgba(59,130,246,0.25)] hover:bg-[#5B9CFF] hover:-translate-y-[1px] transition-all duration-200"
+                >
+                  {t("hero.ctaPrimary")}
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                    <line x1="5" y1="12" x2="19" y2="12" /><polyline points="12 5 19 12 12 19" />
+                  </svg>
+                </Link>
+                <a
+                  href="#how"
+                  className="inline-flex items-center gap-2 bg-white/[0.04] text-[#E8EEF7] border border-[#1F3354] px-[22px] py-[11px] rounded-[8px] font-semibold text-[14px] hover:bg-white/[0.08] hover:border-[#3B82F6] transition-all duration-200"
+                >
+                  {t("hero.ctaSecondary")}
+                </a>
               </div>
             </div>
-          ))}
+
+            {/* Right column — partnership cycle SVG */}
+            <div className="hidden lg:block">
+              <PartnershipCycle />
+            </div>
+          </div>
+
+          {/* Counters — full width below */}
+          <div className="mt-16 pt-12 border-t border-[#15263E]">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+              {counters.map((c, i) => (
+                <div key={i} className="flex items-start gap-3.5">
+                  <div className="w-8 h-8 border border-[#1F3354] rounded-md flex items-center justify-center text-[#5B9CFF] shrink-0">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round">
+                      <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" /><polyline points="22 4 12 14.01 9 11.01" />
+                    </svg>
+                  </div>
+                  <div>
+                    <div className="text-[22px] font-bold leading-none">{c.num}</div>
+                    <div className="text-[13px] text-[#A8B5CC] mt-1">{c.label}</div>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
         </div>
       </section>
 
@@ -376,5 +388,64 @@ export default async function PartnerstvoPage() {
         </Link>
       </section>
     </>
+  );
+}
+
+function PartnershipCycle() {
+  const nodes = [
+    { x: 240, y: 60, label: "САЙТ", sub: "01" },
+    { x: 420, y: 240, label: "ЗАЯВКИ", sub: "02" },
+    { x: 240, y: 420, label: "ПРОДАЖИ", sub: "03" },
+    { x: 60, y: 240, label: "РАСЧЁТ", sub: "04" },
+  ];
+
+  return (
+    <svg
+      viewBox="0 0 480 480"
+      xmlns="http://www.w3.org/2000/svg"
+      className="w-full h-auto"
+      aria-hidden="true"
+    >
+      <defs>
+        <pattern id="cycle-grid" width="32" height="32" patternUnits="userSpaceOnUse">
+          <path d="M 32 0 L 0 0 0 32" fill="none" stroke="#1F3354" strokeWidth="0.5" />
+        </pattern>
+        <marker id="cycle-arrow" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto-start-reverse">
+          <path d="M 0 0 L 8 5 L 0 10 L 2 5 z" fill="#5B9CFF" />
+        </marker>
+        <radialGradient id="node-glow" cx="50%" cy="50%" r="50%">
+          <stop offset="0%" stopColor="rgba(59,130,246,0.25)" />
+          <stop offset="100%" stopColor="rgba(59,130,246,0)" />
+        </radialGradient>
+      </defs>
+      <rect width="480" height="480" fill="url(#cycle-grid)" opacity="0.6" />
+      <path d="M 280 95 Q 380 110 405 215" fill="none" stroke="#3B82F6" strokeWidth="1.25" strokeDasharray="2 4" markerEnd="url(#cycle-arrow)" />
+      <path d="M 405 280 Q 380 380 280 405" fill="none" stroke="#3B82F6" strokeWidth="1.25" strokeDasharray="2 4" markerEnd="url(#cycle-arrow)" />
+      <path d="M 200 405 Q 100 380 75 280" fill="none" stroke="#3B82F6" strokeWidth="1.25" strokeDasharray="2 4" markerEnd="url(#cycle-arrow)" />
+      <path d="M 75 215 Q 100 110 200 95" fill="none" stroke="#3B82F6" strokeWidth="1.25" strokeDasharray="2 4" markerEnd="url(#cycle-arrow)" />
+      <line x1="240" y1="240" x2="240" y2="100" stroke="#1F3354" strokeWidth="0.5" />
+      <line x1="240" y1="240" x2="380" y2="240" stroke="#1F3354" strokeWidth="0.5" />
+      <line x1="240" y1="240" x2="240" y2="380" stroke="#1F3354" strokeWidth="0.5" />
+      <line x1="240" y1="240" x2="100" y2="240" stroke="#1F3354" strokeWidth="0.5" />
+      <circle cx="240" cy="240" r="48" fill="url(#node-glow)" />
+      <circle cx="240" cy="240" r="32" fill="#0A1628" stroke="#3B82F6" strokeWidth="1" />
+      <text x="240" y="237" fill="#5B9CFF" fontFamily="Inter, system-ui, sans-serif" fontSize="9" fontWeight="700" textAnchor="middle" letterSpacing="1.5">ЦИКЛ</text>
+      <text x="240" y="252" fill="#A8B5CC" fontFamily="Inter, system-ui, sans-serif" fontSize="8" textAnchor="middle">партнёрства</text>
+      {nodes.map((node, i) => (
+        <g key={i}>
+          <circle cx={node.x} cy={node.y} r="42" fill="url(#node-glow)" />
+          <rect x={node.x - 32} y={node.y - 32} width="64" height="64" rx="8" fill="#13243D" stroke="#3B82F6" strokeWidth="1.25" />
+          <text x={node.x} y={node.y - 8} fill="#5B9CFF" fontFamily="Inter, system-ui, sans-serif" fontSize="10" fontWeight="600" textAnchor="middle" letterSpacing="1">{node.sub}</text>
+          <text x={node.x} y={node.y + 12} fill="#E8EEF7" fontFamily="Inter, system-ui, sans-serif" fontSize="11" fontWeight="700" textAnchor="middle" letterSpacing="1.2">{node.label}</text>
+          <path d={`M ${node.x - 32} ${node.y - 32} l 4 0 M ${node.x - 32} ${node.y - 32} l 0 4`} stroke="#5B9CFF" strokeWidth="1.25" />
+          <path d={`M ${node.x + 32} ${node.y - 32} l -4 0 M ${node.x + 32} ${node.y - 32} l 0 4`} stroke="#5B9CFF" strokeWidth="1.25" />
+          <path d={`M ${node.x - 32} ${node.y + 32} l 4 0 M ${node.x - 32} ${node.y + 32} l 0 -4`} stroke="#5B9CFF" strokeWidth="1.25" />
+          <path d={`M ${node.x + 32} ${node.y + 32} l -4 0 M ${node.x + 32} ${node.y + 32} l 0 -4`} stroke="#5B9CFF" strokeWidth="1.25" />
+        </g>
+      ))}
+      <text x="12" y="20" fill="#6E7E99" fontFamily="JetBrains Mono, monospace" fontSize="8" letterSpacing="0.5">RADUCAN · СХЕМА</text>
+      <text x="468" y="20" fill="#6E7E99" fontFamily="JetBrains Mono, monospace" fontSize="8" textAnchor="end" letterSpacing="0.5">v.1</text>
+      <text x="12" y="472" fill="#6E7E99" fontFamily="JetBrains Mono, monospace" fontSize="8" letterSpacing="0.5">ПАРТНЁРСТВО ПО РЕЗУЛЬТАТУ</text>
+    </svg>
   );
 }
