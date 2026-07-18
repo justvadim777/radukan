@@ -300,6 +300,12 @@ export default function GameScreen() {
           >
             <Text style={styles.tabText}>Отчёт</Text>
           </TouchableOpacity>
+          <TouchableOpacity
+            style={styles.tab}
+            onPress={() => router.push('/exchange')}
+          >
+            <Text style={styles.tabText}>📈</Text>
+          </TouchableOpacity>
         </View>
       </View>
 
