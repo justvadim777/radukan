@@ -1,0 +1,138 @@
+import type { MarketCard } from '../types';
+
+export const MARKET_CARDS: MarketCard[] = [
+  // ── Акции (движение цен) ──────────────────────────────────────────────────
+  {
+    id: 'mc-myt4u-up',
+    title: 'MYT4U растёт!',
+    description: 'Позитивная аналитика. Цена MYT4U поднимается до $8.',
+    ticker: 'MYT4U',
+    newStockPrice: 8,
+  },
+  {
+    id: 'mc-myt4u-down',
+    title: 'MYT4U падает',
+    description: 'Плохие новости. Цена MYT4U падает до $2.',
+    ticker: 'MYT4U',
+    newStockPrice: 2,
+  },
+  {
+    id: 'mc-myt4u-mid',
+    title: 'MYT4U в норме',
+    description: 'Отчёт совпал с ожиданиями. MYT4U = $5.',
+    ticker: 'MYT4U',
+    newStockPrice: 5,
+  },
+  {
+    id: 'mc-ok4u-surge',
+    title: 'OK4U взлетает!',
+    description: 'Слияние с крупной компанией. OK4U = $28.',
+    ticker: 'OK4U',
+    newStockPrice: 28,
+  },
+  {
+    id: 'mc-ok4u-crash',
+    title: 'OK4U обвал',
+    description: 'Скандал с топ-менеджментом. OK4U = $6.',
+    ticker: 'OK4U',
+    newStockPrice: 6,
+  },
+  {
+    id: 'mc-ok4u-recover',
+    title: 'OK4U восстанавливается',
+    description: 'Новое руководство. OK4U = $18.',
+    ticker: 'OK4U',
+    newStockPrice: 18,
+  },
+  {
+    id: 'mc-gro4us-up',
+    title: 'GRO4US — рост выручки',
+    description: 'GRO4US = $14.',
+    ticker: 'GRO4US',
+    newStockPrice: 14,
+  },
+  {
+    id: 'mc-gro4us-down',
+    title: 'GRO4US — убытки',
+    description: 'GRO4US = $4.',
+    ticker: 'GRO4US',
+    newStockPrice: 4,
+  },
+  {
+    id: 'mc-on2u-high',
+    title: 'ON2U — дивиденды выросли',
+    description: 'ON2U = $24.',
+    ticker: 'ON2U',
+    newStockPrice: 24,
+  },
+  {
+    id: 'mc-on2u-low',
+    title: 'ON2U — прибыль сократилась',
+    description: 'ON2U = $9.',
+    ticker: 'ON2U',
+    newStockPrice: 9,
+  },
+  {
+    id: 'mc-2big-moon',
+    title: '2BIG — выход на IPO!',
+    description: '2BIG = $18.',
+    ticker: '2BIG',
+    newStockPrice: 18,
+  },
+  {
+    id: 'mc-2big-bust',
+    title: '2BIG — банкротство угрозы',
+    description: '2BIG = $2.',
+    ticker: '2BIG',
+    newStockPrice: 2,
+  },
+  {
+    id: 'mc-2big-zero',
+    title: '2BIG — банкрот!',
+    description: '2BIG обанкротилась. Акции стоят $0. Шорт-позиции получают весь маржинальный конверт.',
+    ticker: '2BIG',
+    newStockPrice: 0,
+  },
+  // ── Недвижимость (покупатели) ─────────────────────────────────────────────
+  {
+    id: 'mc-re-house-buyer',
+    title: 'Покупатель на дом',
+    description: 'Кто-то хочет купить дом 3 комн./2 ванных за $75 000. Продавцы — на выбор.',
+    affectedDealId: 'sd-re-house-3br',
+    buyerPrice: 75_000,
+  },
+  {
+    id: 'mc-re-duplex-buyer',
+    title: 'Покупатель на дуплекс',
+    description: 'Предлагают $65 000 за дуплекс.',
+    affectedDealId: 'sd-re-duplex',
+    buyerPrice: 65_000,
+  },
+  {
+    id: 'mc-re-12apt-buyer',
+    title: 'Рост рынка недвижимости',
+    description: 'Инвестор предлагает $500 000 за 12-квартирный дом.',
+    affectedDealId: 'bd-re-12apt',
+    buyerPrice: 500_000,
+  },
+  {
+    id: 'mc-re-24apt-buyer',
+    title: 'Срочный покупатель на 24 квартиры',
+    description: 'Предлагают $750 000.',
+    affectedDealId: 'bd-re-24apt',
+    buyerPrice: 750_000,
+  },
+  // ── Ставка сбережений ─────────────────────────────────────────────────────
+  {
+    id: 'mc-interest-up',
+    title: 'Ставки выросли',
+    description: 'ЦБ поднял ставку. Годовой процент по сбережениям +2%.',
+    interestRateChange: 0.02,
+  },
+  {
+    id: 'mc-interest-down',
+    title: 'Ставки упали',
+    description: 'ЦБ снизил ставку. Годовой процент по сбережениям −2%.',
+    interestRateChange: -0.02,
+  },
+];
